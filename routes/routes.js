@@ -5,6 +5,8 @@ Functions:
 */
 
 const controllers = require('../controllers/controller');
+const login_controllers = require('../controllers/login-controller');
+const employee_clockpage_controllers = require('../controllers/employee-clockpage-controller');
 
 const express = require('express');
 const app = express();
@@ -68,5 +70,10 @@ function admin_access(req, res, next){
 
 //initial routes access
 app.get('/', must_be_logged_out, controllers.get_index);
+//app.post('/add_forgot_password', must_be_logged_out, forgot_password_controllers.post_add_forgot_password);
+app.post('/login_account', must_be_logged_out, login_controllers.post_login);
+//app.get('/logout', initial_process, logout_controllers.get_logout);
+
+app.get('/employee_clockpage', initial_process, employee_wfh_access, employee_access, employee_clockpage_controllers.get_employee_clockpage);
 
 module.exports = app;
