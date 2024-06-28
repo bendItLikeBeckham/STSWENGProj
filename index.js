@@ -15,15 +15,15 @@ const routes = require('./routes/routes.js');
 const hbs = require('hbs');
 const session = require('express-session');
 const database = require('./models/database.js');
-const schedule = require('node-schedule');
-const axios = require('axios');
+//const schedule = require('node-schedule');
+//const axios = require('axios');
 const MongoStore = require('connect-mongo');
 
 const app = express();
 
 dotenv.config();
-const port = process.env.PORT;
-const hostname = process.env.HOSTNAME;
+const port = process.env.PORT || 3000;
+const hostname = process.env.HOSTNAME || 'localhost';
 app.set('view engine', 'hbs');
 
 hbs.registerPartials(__dirname + '/views/partials')
@@ -50,7 +50,6 @@ app.use(session({
 }));
 
 app.use('/', routes);
-
 
 app.use(function(req, res){
     res.status(404).send('Error 404: Page Not Found');
