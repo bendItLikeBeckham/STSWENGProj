@@ -13,21 +13,6 @@
         <p id="date">Monday, January 1, 2024</p>
     </div>
 
-    <div class = "popup" id="popup-1"> 
-        <div class="overlay"></div>
-        <div class="content">
-            <div class="close-btn" onclick="closeBtn()">&times;</div>
-            <h1>Please Enter OTP</h1>
-            <form id="otp-form" onsubmit="submitOtp(event)">
-                <div class="otp-form">
-                    <input type="text" name="otp_value" placeholder="****" id="otp_value" class="log-text">
-                <span class="resend-otp" onclick="generateOtpAndOpenOTPWindow()"><p>Resend OTP</p></span>
-                </div>
-                <div class="otp-button"><button type="submit" id="otp-button-send">Enter</button></div>
-            </form>
-        </div>
-    </div>
-
     <div class = "popup" id="popup-3">    
         <div class="overlay"></div>
             <div class="content">
@@ -51,7 +36,7 @@
     
 
     <div class="log-buttons">
-        <button type="button" id="time-in-btn" onclick="togglePopup()">
+        <button type="button" id="time-in-btn" onclick="timeIn(); togglePopup2()">
             <i class="fi fi-rr-enter"></i>
             <p>Time-in</p>
         </button>
