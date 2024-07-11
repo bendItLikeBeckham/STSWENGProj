@@ -303,7 +303,6 @@ body{
     width: 30vw;
     height: 100vh;
     display: flex;
-    background-color: var(--darkgray-m);
     justify-content: center;
 }
 .login-left img{
