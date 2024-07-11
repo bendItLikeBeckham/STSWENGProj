@@ -86,8 +86,4 @@ app.post('/employee_time_out', initial_process, employee_wfh_access, employee_cl
 app.get('/employee_clockpage', initial_process, employee_wfh_access, employee_access, employee_clockpage_controllers.get_employee_clockpage);
 
 
-app.get('/get_employee_time_in', initial_process, employee_wfh_access, employee_clockpage_controllers.get_employee_time_in);
-
-
-
 module.exports = app;
