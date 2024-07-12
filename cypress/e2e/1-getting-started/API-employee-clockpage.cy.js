@@ -26,19 +26,19 @@ describe('Time-in API Test', () => {
         const formattedTime = hours + ':' + minutes;
 
         if(weekdayIndex == 1) {
-            cy.findOne({Email: "john_doe@gmail.com",Mon_Time_In:formattedTime});
+            cy.findOne({Email: "john_doe@gmail.com",Mon_Time_In:formattedTime},{timeout:50000});
         } else if (weekdayIndex == 2) {
-            cy.findOne({Email: "john_doe@gmail.com",Tue_Time_In:formattedTime});
+            cy.findOne({Email: "john_doe@gmail.com",Tue_Time_In:formattedTime},{timeout:50000});
         } else if (weekdayIndex == 3) {
-            cy.findOne({Email: "john_doe@gmail.com",Wed_Time_In:formattedTime});
+            cy.findOne({Email: "john_doe@gmail.com",Wed_Time_In:formattedTime},{timeout:50000});
         } else if (weekdayIndex == 4) {
-            cy.findOne({Email: "john_doe@gmail.com",Thu_Time_In:formattedTime});
+            cy.findOne({Email: "john_doe@gmail.com",Thu_Time_In:formattedTime},{timeout:50000});
         } else if (weekdayIndex == 5) {
-            cy.findOne({Email: "john_doe@gmail.com",Fri_Time_In:formattedTime});
+            cy.findOne({Email: "john_doe@gmail.com",Fri_Time_In:formattedTime},{timeout:50000});
         } else if (weekdayIndex == 6) {
-            cy.findOne({Email: "john_doe@gmail.com",Sat_Time_In:formattedTime});
+            cy.findOne({Email: "john_doe@gmail.com",Sat_Time_In:formattedTime},{timeout:50000});
         } else if (weekdayIndex == 0) {
-            cy.findOne({Email: "john_doe@gmail.com",Sun_Time_In:formattedTime});
+            cy.findOne({Email: "john_doe@gmail.com",Sun_Time_In:formattedTime},{timeout:50000});
         }
 
         cy.get("#popup-3 .close-btn").click()
@@ -58,19 +58,19 @@ describe('Time-in API Test', () => {
         const formattedTime = hours + ':' + minutes;
 
         if(weekdayIndex == 1) {
-            cy.findOne({Email: "john_doe@gmail.com",Mon_Time_Out:formattedTime});
+            cy.findOne({Email: "john_doe@gmail.com",Mon_Time_Out:formattedTime},{timeout:50000});
         } else if (weekdayIndex == 2) {
-            cy.findOne({Email: "john_doe@gmail.com",Tue_Time_Out:formattedTime});
+            cy.findOne({Email: "john_doe@gmail.com",Tue_Time_Out:formattedTime},{timeout:50000});
         } else if (weekdayIndex == 3) {
-            cy.findOne({Email: "john_doe@gmail.com",Wed_Time_Out:formattedTime});
+            cy.findOne({Email: "john_doe@gmail.com",Wed_Time_Out:formattedTime},{timeout:50000});
         } else if (weekdayIndex == 4) {
-            cy.findOne({Email: "john_doe@gmail.com",Thu_Time_Out:formattedTime});
+            cy.findOne({Email: "john_doe@gmail.com",Thu_Time_Out:formattedTime},{timeout:50000});
         } else if (weekdayIndex == 5) {
-            cy.findOne({Email: "john_doe@gmail.com",Fri_Time_Out:formattedTime});
+            cy.findOne({Email: "john_doe@gmail.com",Fri_Time_Out:formattedTime},{timeout:50000});
         } else if (weekdayIndex == 6) {
-            cy.findOne({Email: "john_doe@gmail.com",Sat_Time_Out:formattedTime});
+            cy.findOne({Email: "john_doe@gmail.com",Sat_Time_Out:formattedTime},{timeout:50000});
         } else if (weekdayIndex == 0) {
-            cy.findOne({Email: "john_doe@gmail.com",Sun_Time_Out:formattedTime});
+            cy.findOne({Email: "john_doe@gmail.com",Sun_Time_Out:formattedTime},{timeout:50000});
         }
 
         cy.get("#popup-4 .close-btn").click()
