@@ -68,7 +68,14 @@ const update_payroll_controller = {
                         Weekly_Total_Additional: week_1.Weekly_Total_Additional,
                         Weekly_Total_Deduction: week_1.Weekly_Total_Deduction,
                         Weekly_Total_Pay: week_1.Weekly_Total_Pay,
-                        Weekly_Hourly_Rate: week_1.Weekly_Hourly_Rate
+                        Weekly_Hourly_Rate: week_1.Weekly_Hourly_Rate,
+                        Mon_Pay_Per_Hour: week_1.Mon_Pay_Per_Hour,
+                        Tue_Pay_Per_Hour: week_1.Tue_Pay_Per_Hour,
+                        Wed_Pay_Per_Hour: week_1.Wed_Pay_Per_Hour,
+                        Thu_Pay_Per_Hour: week_1.Thu_Pay_Per_Hour,
+                        Fri_Pay_Per_Hour: week_1.Fri_Pay_Per_Hour,
+                        Sat_Pay_Per_Hour: week_1.Sat_Pay_Per_Hour,
+                        Sun_Pay_Per_Hour: week_1.Sun_Pay_Per_Hour
                     }
                 });
         
@@ -122,7 +129,14 @@ const update_payroll_controller = {
                         Weekly_Total_Additional: week_0.Weekly_Total_Additional,
                         Weekly_Total_Deduction: week_0.Weekly_Total_Deduction,
                         Weekly_Total_Pay: week_0.Weekly_Total_Pay,
-                        Weekly_Hourly_Rate: week_0.Weekly_Hourly_Rate
+                        Weekly_Hourly_Rate: week_0.Weekly_Hourly_Rate,
+                        Mon_Pay_Per_Hour: week_0.Mon_Pay_Per_Hour,
+                        Tue_Pay_Per_Hour: week_0.Tue_Pay_Per_Hour,
+                        Wed_Pay_Per_Hour: week_0.Wed_Pay_Per_Hour,
+                        Thu_Pay_Per_Hour: week_0.Thu_Pay_Per_Hour,
+                        Fri_Pay_Per_Hour: week_0.Fri_Pay_Per_Hour,
+                        Sat_Pay_Per_Hour: week_0.Sat_Pay_Per_Hour,
+                        Sun_Pay_Per_Hour: week_0.Sun_Pay_Per_Hour
                     }
                 });
         
@@ -176,9 +190,15 @@ const update_payroll_controller = {
                         Weekly_Total_Additional: 0,
                         Weekly_Total_Deduction: 0,
                         Weekly_Total_Pay: 0,
-                        Weekly_Hourly_Rate: 10
-                    }
-                });
+                        Weekly_Hourly_Rate: 10,
+                        Mon_Pay_Per_Hour: 10,
+                        Tue_Pay_Per_Hour: 10,
+                        Wed_Pay_Per_Hour: 10,
+                        Thu_Pay_Per_Hour: 10,
+                        Fri_Pay_Per_Hour: 10,
+                        Sat_Pay_Per_Hour: 10,
+                        Sun_Pay_Per_Hour: 10
+                }});
             }
         }
 
