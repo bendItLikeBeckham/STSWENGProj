@@ -15,8 +15,8 @@ const routes = require('./routes/routes.js');
 const hbs = require('hbs');
 const session = require('express-session');
 const database = require('./models/database.js');
-//const schedule = require('node-schedule');
-//const axios = require('axios');
+const schedule = require('node-schedule');
+const axios = require('axios');
 const MongoStore = require('connect-mongo');
 
 const app = express();
@@ -50,6 +50,17 @@ app.use(session({
 }));
 
 app.use('/', routes);
+
+//PST: Sunday 12am/ UTC: Saturday 4pm
+schedule.scheduleJob('0 0 * * 0', function(){
+    axios.post(`http://${hostname}:${port}/update_employee_payroll`)
+        .then(response => {
+            console.log(response.data);
+        })
+        .catch(error => {
+            console.error("Error Updating Payroll:", error);
+        });
+});
 
 app.use(function(req, res){
     res.status(404).send('Error 404: Page Not Found');
