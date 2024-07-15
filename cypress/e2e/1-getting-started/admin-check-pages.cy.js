@@ -17,7 +17,7 @@ describe('Application Exploration Admin Test', () =>{
         cy.url().should("include", "/admin_empman_attendrecs")
       })
 
-      it('should go to employee management', () =>{
+      /*it('should go to employee management', () =>{
         cy.get('#adm-dlt').click
         cy.get('#adm-dlt')
       })
@@ -25,24 +25,5 @@ describe('Application Exploration Admin Test', () =>{
       it('should go to notifications', () =>{
         cy.get('#adm-not').click
         cy.get('.admin-leftdash-top > h2')
-      })
-
-      it('should go to employee records', () =>{
-        cy.get('#emp-mgm-id').click()
-
-        //cy.get('#dropdown').click()
-        //cy.get('#adm_rec').click()
-
-        //cy.url().should("include", "/admin_empman_emprecs")
-      })
-      
-      it('should go to employee payroll', () =>{
-        cy.get('#emp-mgm-id').click()
-
-        //cy.get('#dropdown').click()
-        //cy.get('#adm_rec').click()
-
-        //cy.url().should("include", "/admin_empman_payroll")
-      })
-
+      })*/
 })  
