@@ -14,7 +14,7 @@ describe('Application Exploration Admin Test', () =>{
 
       it('should go to employee management', () =>{
         cy.get('#emp-mgm-id').click()
-        cy.url().should("include", "admin_empman_attendrecs")
+        cy.url().should("include", "/admin_empman_attendrecs")
       })
 
       it('should go to employee management', () =>{
@@ -27,5 +27,22 @@ describe('Application Exploration Admin Test', () =>{
         cy.get('.admin-leftdash-top > h2')
       })
 
-    
+      it('should go to employee records', () =>{
+        cy.get('#emp-mgm-id').click()
+
+        //cy.get('#dropdown').click()
+        //cy.get('#adm_rec').click()
+
+        //cy.url().should("include", "/admin_empman_emprecs")
+      })
+      
+      it('should go to employee payroll', () =>{
+        cy.get('#emp-mgm-id').click()
+
+        //cy.get('#dropdown').click()
+        //cy.get('#adm_rec').click()
+
+        //cy.url().should("include", "/admin_empman_payroll")
+      })
+
 })  

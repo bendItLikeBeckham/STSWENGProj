@@ -12,9 +12,9 @@
         <h2>Employee Management</h2>
         <div class="empman-header">
             <div class="dropdown-page">
-                <select onchange="navigate()">
-                    <option value="admin_empman_emprecs">Employee Information</option>
-                    <option value="admin_empman_payroll">Weekly Payroll</option>
+                <select id="dropdown" onchange="navigate()">
+                    <option id="adm-rec" value="admin_empman_emprecs">Employee Information</option>
+                    <option id="adm-pay"value="admin_empman_payroll">Weekly Payroll</option>
                 </select>
             </div>
             <div class="dropdown">
@@ -68,7 +68,7 @@
             <i class="fi fi-rr-calendar-clock"></i>
             <p>Time-in/out Logs</p>
         </button>
-        <button type="button" class="ad-rightdash-btn" id="emp-mgm-id" onclick="window.location.href = 'admin_empman_payroll';">
+        <button type="button" class="ad-rightdash-btn" id="emp-mgm-id" onclick="window.location.href = 'admin_empman_emprecs';">
             <i class="fi fi-rr-employee-man"></i>
             <p>Employee Management</p>
         </button>
