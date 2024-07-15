@@ -17,13 +17,28 @@ describe('Application Exploration Admin Test', () =>{
         cy.url().should("include", "/admin_empman_attendrecs")
       })
 
-      /*it('should go to employee management', () =>{
-        cy.get('#adm-dlt').click
-        cy.get('#adm-dlt')
+      it('should go to delete employee', () =>{
+        cy.get('#adm-dlt').click()
+        cy.get('.admin-leftdash-top > h2').should('have.text', "Add/Delete Employee")
       })
 
       it('should go to notifications', () =>{
-        cy.get('#adm-not').click
-        cy.get('.admin-leftdash-top > h2')
+        cy.get('#adm-not').click()
+        cy.get('.admin-leftdash-top > h2').should('have.text', "Admin Notifications")
+      })
+
+      /*it('should go to employee records', () =>{
+        cy.get('#dropdown').click()
+        cy.get('#adm_rec').click()
+
+        cy.url().should("include", "/admin_empman_emprecs")
+      })
+      
+      it('should go to employee payroll', () =>{
+        cy.get('#dropdown').click()
+        cy.get('#adm_rec').click()
+
+        cy.url().should("include", "/admin_empman_payroll")
       })*/
+
 })  
