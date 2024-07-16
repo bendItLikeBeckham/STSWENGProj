@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/style.css"> 
+    <link rel="icon" type="image/x-icon" href="css/images/greenatwork-logo.png">
+    <script src="js/script.js"></script> 
+</head>
+<body>
+   <div class = "popup" id="popup-2">    
+        <div class="overlay"></div>
+            <div class="content">
+                <div class="close-btn" onclick="togglePopup()">&times;</div>
+                <h1>Confirm Deletion</h1>
+                    <span><p>Please not that employee records will be PERMANENTLY deleted.</p></span>
+                <div class="otp-button"><button id="user-delete-button" onclick="delete_function(); togglePopup2()">Confrim</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    </div>
+        <div class = "popup" id="popup-3">    
+            <div class="overlay"></div>
+                <div class="content">
+                    <div class="close-btn" onclick="reload()">&times;</div>
+                    <h1>User Has Been Deleted</h1>
+                    <div class="otp-button"><button id="register-button" onclick="reload()">Confrim</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+<div class="left-payroll admin-leftdash">
+    <div class="admin-leftdash-top">
+        <h2>Add/Delete Employee</h2>
+        <div class="empman-header">
+            <div class="dropdown-page">
+                <select onchange="navigate()">
+                    <option value="delete_user">Delete Employee</option>
+                    <option value="register">Add Employee</option>
+                </select>
+            </div>
+            <div class="dropdown">
+                <label>Employee:</label>
+                <select id="email" onchange="displayDetail()">
+                    <option>Select User</option>
+                    {{#each emp_emails}}
+                    <option>{{this.Email}}</option>
+                    {{/each}}
+                </select>
+            </div> 
+        </div>
+        <div class="emp-info">
+            <div>
+                <p>First Name: <span>{{emp_sum.First_Name}}</span></p>
+                <p>Last Name: <span>{{emp_sum.Last_Name}}</span></p>
+                <p>Address: <span>{{emp_sum.Address}}</span></p> 
+                <p>Contact Number: <span>{{emp_sum.Contact_Number}}</span></p> 
+              </div>
+              <div>
+                <p>Email: <span id="emailToDelete">{{emp_sum.Email}}</span></p> 
+                <p>Password: <span>{{emp_sum.Password}}</span></p>
+                <p>Role: <span>{{emp_sum.Employee_Type}}</span></p>
+              </div>
+        </div>
+        <div class="ad-left-btn">
+            <button type="button" onclick="togglePopup()" class="ad-leftdash-btn">
+                <p>Confirm Delete Employee</p>
+            </button>
+        </div>
+    </div>
+</div>
+<script>
+    function navigate() {
+        var selectElement = document.querySelector(".dropdown-page select");
+        var selectedOption = selectElement.options[selectElement.selectedIndex];
+        if (selectedOption.value) {
+            window.location.href = selectedOption.value;
+        }
+    }
+</script>
+<div class="right-payroll right-emp-dash">
+    <div class="admin-rightdash-top">
+        <h1>Admin Dashboard</h1>
+        <p>As of <span id="date">Monday, January 1, 2024</span></p> 
+        <p id="time">00:00:00</p>
+    </div>
+  <div class="ad-dash-spacer"></div>
+    <div class="admin-rightdash-mid">
+        <button type="button" class="ad-rightdash-btn" id="Ti-To-logs-id" onclick="window.location.href = 'admin_dashboard';">
+            <i class="fi fi-rr-calendar-clock"></i>
+            <p>Time-in/out Logs</p>
+        </button>
+        <button type="button" class="ad-rightdash-btn" id="emp-mgm-id" onclick="window.location.href = 'admin_empman_emprecs';">
+            <i class="fi fi-rr-employee-man"></i>
+            <p>Employee Management</p>
+        </button>
+        <button type="button" class="ad-rightdash-btn" id="adm-dlt" onclick="window.location.href = 'register';">
+            <i class="fi fi-rr-users-alt"></i>
+            <p>Add/Delete User</p>
+        </button>
+        <button type="button" class="ad-rightdash-btn" id="adm-not" onclick="window.location.href = 'admin_notifs';">
+        <i class="fi fi-rr-bell"></i>
+        <p>Notifications</p>
+        </button>
+    </div>
+    <div class="admin-rightdash-bottom">
+        <h2><a href="/logout">Log-Out</a></h2>   
+    </div>
+</div>
+<script src="/js/user-delete.js"></script>
+</body>
+</html>
