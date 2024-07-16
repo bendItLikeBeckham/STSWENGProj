@@ -4,6 +4,7 @@
   "private": true,
   "type": "commonjs",
   "scripts": {
+    "test": "vitest",
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
@@ -30,6 +31,7 @@
     "node": "^18.20.4",
     "node-schedule": "^2.1.1",
     "nodemon": "^3.1.4",
+    "p-limit": "^6.1.0",
     "vue": "^3.4.29"
   },
   "devDependencies": {
