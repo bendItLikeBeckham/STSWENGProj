@@ -12,9 +12,9 @@
         <h2>Employee Management</h2>
         <div class="empman-header">
             <div class="dropdown-page">
-                <select id="emp-mgm-page-id">
-                    <option id="adm-rec" value="admin_empman_emprecs">Employee Information</option>
-                    <option id="adm-pay" value="admin_empman_payroll">Weekly Payroll</option>
+                <select id="emp-mgm-page-id" onchange="navigate()">
+                    <option value="admin_empman_payroll">Weekly Payroll</option>
+                    <option value="admin_empman_emprecs">Employee Information</option> 
                 </select>
             </div>
             <div class="dropdown">
@@ -195,5 +195,14 @@
     </div>
 </div>
 <script src="/js/weekly-payroll.js"></script>
+<script>
+    function navigate() {
+        var selectElement = document.querySelector(".dropdown-page select");
+        var selectedOption = selectElement.options[selectElement.selectedIndex];
+        if (selectedOption.value) {
+            window.location.href = selectedOption.value;
+        }
+    }
+</script>
 </body>
 </html>
