@@ -5,26 +5,19 @@
     <link rel="stylesheet" href="/css/style.css"> 
 </head>
 <body>
-<div class="login-left">
-    <img src="/css/images/clock_black.png" alt="Company Logo">
-</div>
+
 <div class="login-right">
-    <h1>Log-in</h1>
+    <img src="/css/images/clock.svg"className="login-logo" alt="Company logo" />
+    <h1>PunchNPay</h1>
     <form id="login-form">
         <div class="login-input">
-            <div class="log-field">
-                <i class="fi fi-sr-envelope green-icon"></i>
                 <input type="email" name="email" placeholder="Email" id="email" class="log-text">
-            </div>
-            <div class="log-field">
-                <i class="fi fi-sr-lock green-icon"></i>        
-                <input type="password" name="password" placeholder="Password" id="password" class="log-text">
-                <i class="fi fi-rr-eye-crossed pw-icon" id="eye-icon"></i>    
-            </div>
-                
+                <br>
+                <input type="password" name="password" placeholder="Password" id="password" class="log-text"> 
+                <br>     
         </div>
         <div>
-            <button type="button" onclick="togglePopup()" style="text-decoration: none; color: #86B745; background: none; border: none; cursor: pointer;">Forgot Password?</button>
+            <button type="button" onclick="togglePopup()" style="text-decoration: none; color: darkcyan; background: none; border: none; cursor: pointer;">Forgot Password?</button>
         </div>
         <div>
             <p id="error_issue" style="font-weight: bold; color: red; text-align: center;"></p>
