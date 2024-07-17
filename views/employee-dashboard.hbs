@@ -30,9 +30,7 @@
                 <th>Time-Out</th>
                 <th>Total Time</th>
                 <th>Total Valid Hours</th>
-                <th>Total Valid Minutes</th>
                 <th>Total Hour Rate</th>
-                <th>Total Minute Rate</th>
                 <th>Total Day Pay</th>
             </tr>
             <tr>
@@ -41,9 +39,7 @@
                 <td>{{emp_det.Mon_Time_Out}}</td>
                 <td>{{emp_det.Mon_Hours}}:{{emp_det.Mon_Minutes}}</td>
                 <td>{{emp_det.Mon_Hours}}</td>
-                <td>{{emp_det.Mon_Minutes}}</td>
                 <td>₱ {{Total_Hour_Rate.[1]}}</td>
-                <td>₱ {{Total_Minute_Rate.[1]}}</td>
                 <td>₱ {{emp_det.Mon_Total_Pay}}</td>
             </tr>
             <tr>
@@ -52,9 +48,7 @@
                 <td>{{emp_det.Tue_Time_Out}}</td>
                 <td>{{emp_det.Tue_Hours}}:{{emp_det.Tue_Minutes}}</td>
                 <td>{{emp_det.Tue_Hours}}</td>
-                <td>{{emp_det.Tue_Minutes}}</td>
                 <td>₱ {{Total_Hour_Rate.[2]}}</td>
-                <td>₱ {{Total_Minute_Rate.[2]}}</td>
                 <td>₱ {{emp_det.Tue_Total_Pay}}</td>
             </tr>
             <tr>
@@ -63,9 +57,7 @@
                 <td>{{emp_det.Wed_Time_Out}}</td>
                 <td>{{emp_det.Wed_Hours}}:{{emp_det.Wed_Minutes}}</td>
                 <td>{{emp_det.Wed_Hours}}</td>
-                <td>{{emp_det.Wed_Minutes}}</td>
                 <td>₱ {{Total_Hour_Rate.[3]}}</td>
-                <td>₱ {{Total_Minute_Rate.[3]}}</td>
                 <td>₱ {{emp_det.Wed_Total_Pay}}</td>
             </tr>
             <tr>
@@ -74,9 +66,7 @@
                 <td>{{emp_det.Thu_Time_Out}}</td>
                 <td>{{emp_det.Thu_Hours}}:{{emp_det.Thu_Minutes}}</td>
                 <td>{{emp_det.Thu_Hours}}</td>
-                <td>{{emp_det.Thu_Minutes}}</td>
                 <td>₱ {{Total_Hour_Rate.[4]}}</td>
-                <td>₱ {{Total_Minute_Rate.[4]}}</td>
                 <td>₱ {{emp_det.Thu_Total_Pay}}</td>
             </tr>
             <tr>
@@ -84,10 +74,8 @@
                 <td>{{emp_det.Fri_Time_In}}</td>
                 <td>{{emp_det.Fri_Time_Out}}</td>
                 <td>{{emp_det.Fri_Hours}}:{{emp_det.Fri_Minutes}}</td>
-                <td>{{emp_det.Fri_Hours}}</td>
                 <td>{{emp_det.Fri_Minutes}}</td>
                 <td>₱ {{Total_Hour_Rate.[5]}}</td>
-                <td>₱ {{Total_Minute_Rate.[5]}}</td>
                 <td>₱ {{emp_det.Fri_Total_Pay}}</td>
             </tr>
             <tr>
@@ -96,9 +84,7 @@
                 <td>{{emp_det.Sat_Time_Out}}</td>
                 <td>{{emp_det.Sat_Hours}}:{{emp_det.Sat_Minutes}}</td>
                 <td>{{emp_det.Sat_Hours}}</td>
-                <td>{{emp_det.Sat_Minutes}}</td>
                 <td>₱ {{Total_Hour_Rate.[6]}}</td>
-                <td>₱ {{Total_Minute_Rate.[6]}}</td>
                 <td>₱ {{emp_det.Sat_Total_Pay}}</td>
             </tr>
             <tr>
@@ -107,17 +93,13 @@
                 <td>{{emp_det.Sun_Time_Out}}</td>
                 <td>{{emp_det.Sun_Hours}}:{{emp_det.Sun_Minutes}}</td>
                 <td>{{emp_det.Sun_Hours}}</td>
-                <td>{{emp_det.Sun_Minutes}}</td>
                 <td>₱ {{Total_Hour_Rate.[0]}}</td>
-                <td>₱ {{Total_Minute_Rate.[0]}}</td>
                 <td>₱ {{emp_det.Sun_Total_Pay}}</td>
             </tr>
         </table>
     </div>
     <div class="empman-btm">
-            <div class="num-input-1">
-            <h3>Additional: ₱<span>{{emp_det.Weekly_Total_Additional}}</span></h3>
-            <h3>Advance: ₱<span>{{emp_det.Weekly_Total_Advance}}</span></h3>      
+            <div class="num-input-1">     
             <h3>Deduction: ₱<span>{{emp_det.Weekly_Total_Deduction}}</span></h3>
         </div>
         <div>

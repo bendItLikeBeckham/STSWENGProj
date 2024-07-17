@@ -162,6 +162,7 @@ body{
     width: 80vw;
     display: flex;
     flex-direction: column;
+    background: linear-gradient(to right, #282c34, #202328);
 }
 .right-payroll{
     width: 20vw;
@@ -206,6 +207,11 @@ body{
 .fi.fi-rr-employee-man {
     color: #008b8b; 
 }
+
+.fi.fi-rr-calendar-clock {
+    color: #008b8b; 
+}
+
 .left-payroll-mid th:first-child{
     padding: 5px;
     text-align: left;
@@ -456,6 +462,8 @@ body{
 }
 .ad-rightdash-btn p{
     text-align: center;
+    color: darkcyan;
+
 }
 .admin-rightdash-mid{
     display: flex;
@@ -467,14 +475,36 @@ body{
     background-color: #202328;
 }
 .admin-leftdash{
-    margin: 3vh 3vw 3vh 3vw;
+    margin: 0vh 0vw 0vh 0vw;
+    padding-left: 30px;
+    padding-top: 50px;
 }
-.admin-leftdash{
-    margin: 3vh 3vw 3vh 3vw;
-}
+
 .admin-leftdash-top h2{
-    color: var(--darkgray-m);
+    color: white;
 }
+
+table {
+    background-color: white;
+    color: white;
+    border: 1px solid darkcyan;
+}
+
+table th, table td {
+    color: white;
+    border: 1px solid darkcyan;
+}
+
+table th {
+    background-color: #282c34;
+    border: 1px solid darkcyan;
+}
+
+table td {
+    background-color: #282c34;
+    border: 1px solid darkcyan;
+}
+
 .dropdown{
     display: flex;
     background-color: var(--white-hov);
@@ -631,8 +661,11 @@ body{
     margin-bottom: 2vh;
     font-size: 2.5vh;
 }
+.num-input-1 h3{
+    color: white;
+}
 .empman-btm h1{
-    color: var(--green-m);
+    color: darkcyan;
     margin-top: 5vh;
 }
 .empman-btm h3{
