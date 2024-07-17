@@ -9,7 +9,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
 
 
-describe('example to-do app', () => {
+describe('Employee Clockpage Test Suite', () => {
     beforeEach(() => {
       cy.visit('http://localhost:3000')
       cy.get("#email").type("john_doe@gmail.com")
