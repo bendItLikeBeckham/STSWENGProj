@@ -30,6 +30,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: linear-gradient(to right, #282c34, #202328);
 }
 .mid-emp-dash{
     width: 100vw;
@@ -50,11 +51,13 @@ body{
     font-size: 8vw;
     margin-top: 20px;
     margin-bottom: 0;
+    color: #f0f0f0;
 }
 .date-time-log p{
     font-size: 1.5vw;
     font-weight: 600;
     text-align: center;
+    color: #f0f0f0;
 }
 .log-buttons{
     font-size: 20vh;
@@ -65,18 +68,21 @@ body{
     justify-content: space-between;
     width: 45%;
 }
+.log-buttons button p{
+    color: white;
+}
 .log-buttons button{
     font-size: 20vh;
-    color: var(--green-m);
+    color: darkcyan;
     width: 45%;
     padding: 5%;
     border-radius: 20px;
-    border: 0;
-    background-color: var(--white-m);
+    border: 1 solid darkcyan;
+    background-color: #1e1e1e;
     font-family: 'Archivo', sans-serif;
 }
 .log-buttons button:hover{
-    background-color: var(--white-hov);
+    background-color: #353b45;
     cursor: pointer;
 }
 .log-buttons button:active{
@@ -164,7 +170,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--darkgray-m);
+    background-color: #202328;
 }
 .left-payroll-top{
     display: flex;
@@ -196,6 +202,9 @@ body{
 .left-payroll-mid tr:first-child {
     padding: 5px;
     text-align: center;
+}
+.fi.fi-rr-employee-man {
+    color: #008b8b; 
 }
 .left-payroll-mid th:first-child{
     padding: 5px;
@@ -405,7 +414,7 @@ body{
     font-size: 0.875rem;
     line-height: 1.5;
     background-color: darkcyan;
-    padding: 1px 100px;
+    padding: 0px 100px;
     color: white;
     transition: all 150ms ease;
     cursor: pointer;
@@ -455,6 +464,7 @@ body{
 }
 .admin-rightdash-mid button{
     width: 90%;
+    background-color: #202328;
 }
 .admin-leftdash{
     margin: 3vh 3vw 3vh 3vw;
@@ -516,7 +526,7 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
-    background: #fff;
+    background: #202328;
     width: 550px;
     height: 275px;
     z-index: 2;
@@ -524,6 +534,11 @@ body{
     padding: 20px;
     box-sizing: border-box;
 }
+
+.popup .content h1 {
+    color: #ffffff;
+}
+
 #popup-2 .content{
     height: 200px;
 }
@@ -545,6 +560,7 @@ body{
     line-height: 30px;
     text-align: center;
     border-radius: 50%;
+    color: darkcyan;
 }
 .popup.active .overlay{
     display: block;
@@ -565,7 +581,7 @@ body{
     padding: 1%;
     border-radius: 20px;
     border: 0;
-    background-color: var(--green-m);
+    background-color: darkcyan;
     font-family: 'Archivo', sans-serif;
 }
 .otp-button button:hover{
