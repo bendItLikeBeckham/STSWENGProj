@@ -19,6 +19,8 @@ const forgot_password_controllers = require('../controllers/forgot-password-cont
 const admin_notifs_controllers = require('../controllers/admin-notifs-controller');
 
 const register_controllers = require('../controllers/register-controller');
+
+const messages_controller = require('../controllers/messages-controller')
  
 const express = require('express');
 const app = express();
@@ -121,5 +123,10 @@ app.get('/display_forgot_password', initial_process, admin_access, admin_notifs_
 app.post('/delete_forgot_password', initial_process, admin_access, forgot_password_controllers.post_delete_forgot_password);
 
 app.post('/update_employee_payroll', update_payroll_controllers.post_update_employee_payroll);
+
+app.get('/admin_notification', initial_process, admin_access, messages_controller.get_admin_message);
+app.get('/employee_notification', initial_process, employee_wfh_access, employee_access, messages_controller.get_employee_message);
+app.post('/add_message', messages_controller.add_notification);
+app.post('/delete_message', messages_controller.delete_notification);
 
 module.exports = app;

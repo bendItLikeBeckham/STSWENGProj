@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Notification System</title>
+</head>
+<body>
+    <h1>Add Notification</h1>
+    <form id="notificationForm">
+        <label for="message">Message:</label>
+        <input type="text" id="message" name="message" required>
+        <button type="submit">Add Notification</button>
+    </form>
+    <h1>Notifications</h1>
+    <ul id="notificationsList">
+        {{#each notifications}}
+        <li>
+            {{this.notification_Message}} - {{this.notification_Date}}
+            <button class="delete" data-id="{{this._id}}">Delete</button>
+        </li>
+        {{/each}}
+    </ul>
+    <script src="/js/admin-messages.js"></script>
+</body>
+</html>
