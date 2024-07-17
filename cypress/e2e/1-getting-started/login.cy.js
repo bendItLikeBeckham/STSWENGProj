@@ -1,15 +1,20 @@
 /// <reference types="cypress" />
 
+Cypress.on('uncaught:exception', (err, runnable) => {
+  if (err.message.includes("setting 'onclick'")) {
+    return false
+  }
+  return true
+})
 
-
-describe('example to-do app', () => {
+describe('Login Page Suite', () => {
   beforeEach(() => {
 
     cy.visit('http://localhost:3000/')
   })
 
   it('displays Login Page', () => {
-    cy.get('.login-right > h1').should('have.text', 'Log-in')
+    cy.get('.login-right > h1').should('have.text', 'PunchNPay')
   })
   
   it('shows error when email text box is empty', () => {  

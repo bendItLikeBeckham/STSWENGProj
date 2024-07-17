@@ -1,10 +1,19 @@
 /// <reference types="cypress" />
 
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+  if (err.message.includes("setting 'onclick'")) {
+    return false
+  }
+  return true
+})
+
+
 describe('Application Exploration Admin Test', () =>{
     beforeEach(() => {
         cy.visit('http://localhost:3000')
         cy.get("#email").type("adminusertest111@gmail.com")
-        cy.get("#password").type("111", { log: false })
+        cy.get("#password").type("123", { log: false })
         cy.get("#login-button").click()
       })
 

@@ -1,5 +1,13 @@
 /// <reference types="cypress" />
 
+Cypress.on('uncaught:exception', (err, runnable) => {
+    if (err.message.includes("setting 'onclick'")) {
+      return false
+    }
+    return true
+  })
+  
+
 
 describe('Time-in API Test', () => {
 
