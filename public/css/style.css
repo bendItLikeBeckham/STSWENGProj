@@ -414,7 +414,7 @@ body{
 }
 
 .login-right button {
-    border-radius: 50px; /* Adjusted border-radius for more rounded edges */
+    border-radius: 50px; 
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 600;
     font-size: 0.875rem;
