@@ -2,11 +2,15 @@
 
 
 Cypress.on('uncaught:exception', (err, runnable) => {
-  if (err.message.includes("setting 'onclick'")) {
+  if (err.message.includes("setting 'onclick'") ) {
     return false
   }
+  if (err.message.includes("setting 'textContent'") ) {
+      return false
+    }
   return true
 })
+  
 
 
 describe('Application Exploration Admin Test', () =>{

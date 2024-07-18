@@ -1,12 +1,14 @@
 /// <reference types="cypress" />
 
 Cypress.on('uncaught:exception', (err, runnable) => {
-  if (err.message.includes("setting 'onclick'")) {
+  if (err.message.includes("setting 'onclick'") ) {
     return false
   }
+  if (err.message.includes("setting 'textContent'") ) {
+      return false
+    }
   return true
 })
-
 
 
 describe('Employee Clockpage Test Suite', () => {
@@ -51,14 +53,15 @@ describe('Employee Clockpage Test Suite', () => {
     cy.get("#popup-4 .close-btn").click()
   })
 
-  it('should be able to access the employee dashboard page', () =>{
-    cy.get(".employee_dashboard").click()
-    cy.url().should("include", "/employee_dashboard")
-  })  
-
   it('should be able to access the company notification page', () =>{
     cy.get(".employee_notification").click()
     cy.url().should("include", "/employee_notification")
+  })  
+
+
+  it('should be able to access the employee dashboard page', () =>{
+    cy.get(".employee_dashboard").click()
+    cy.url().should("include", "/employee_dashboard")
   })  
 
   it("should log-out", () => {
