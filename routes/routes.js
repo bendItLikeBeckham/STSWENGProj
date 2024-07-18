@@ -20,6 +20,8 @@ const admin_notifs_controllers = require('../controllers/admin-notifs-controller
 const admin_edit_user_controllers = require('../controllers/admin-edit-user-controller.js')
 
 const register_controllers = require('../controllers/register-controller');
+
+const messages_controller = require('../controllers/messages-controller')
  
 const express = require('express');
 const app = express();
@@ -126,5 +128,10 @@ app.post('/update_employee_payroll', update_payroll_controllers.post_update_empl
 app.get('/edit_user', initial_process, admin_access, admin_edit_user_controllers.get_edit_user);
 app.get('/search_user', initial_process, admin_access, admin_edit_user_controllers.get_search_user);
 app.post('/update_user', initial_process, admin_access, admin_edit_user_controllers.post_update_user);
+
+app.get('/admin_notification', initial_process, admin_access, messages_controller.get_admin_message);
+app.get('/employee_notification', initial_process, employee_wfh_access, employee_access, messages_controller.get_employee_message);
+app.post('/add_message', messages_controller.add_notification);
+app.post('/delete_message', messages_controller.delete_notification);
 
 module.exports = app;

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Notification System</title>
+    <link rel="stylesheet" href="/css/style.css"> 
+    <link rel="icon" type="image/x-icon" href="/css/images/greenatwork-logo.png">
+    <script src="/js/script.js"></script> 
+</head>
+<body>
+    <div class="left-payroll admin-leftdash">
+        <h1>Notifications</h1>
+        <form id="notificationForm">
+            <label for="message" class="message-label">Message:</label>
+            <br><br>
+            <textarea class="send-notification-input" type="text" id="message" name="message"  required></textarea>
+            <br><br>
+            <button type="submit" class="send-notification-button">Add Notification</button>
+        </form>
+        <br>
+        <div class="notification-timeline" id="notificationsList">
+            {{#each notifications}}
+            <div class="timeline-item">
+                <p class="timeline-date">{{this.notification_Date}}</p>
+                <p class="timeline-message">{{this.notification_Message}}</p>
+                <button class="delete" data-id="{{this._id}}">Delete</button>
+            </div>
+            {{/each}}
+        </div>
+        <div class="pagination" id="paginationControls"></div>
+    </div>
+    <div class="right-payroll right-emp-dash">
+        <div class="admin-rightdash-top">
+            <h1>Admin Dashboard</h1>
+            <p>As of <span id="date">Monday, January 1, 2024</span></p> 
+            <p id="time">00:00:00</p>
+        </div>
+        <div class="ad-dash-spacer"></div>
+        <div class="admin-rightdash-mid">
+            <button type="button" class="ad-rightdash-btn" id="Ti-To-logs-id" onclick="window.location.href = 'admin_dashboard';">
+                <i class="fi fi-rr-calendar-clock"></i>
+                <p>Time-in/out Logs</p>
+            </button>
+            <button type="button" class="ad-rightdash-btn" id="emp-mgm-id" onclick="window.location.href = 'admin_empman_emprecs';">
+                <i class="fi fi-rr-employee-man"></i>
+                <p>Employee Management</p>
+            </button>
+            <button type="button" class="ad-rightdash-btn" id="adm-dlt" onclick="window.location.href = 'register';">
+                <i class="fi fi-rr-users-alt"></i>
+                <p>Add/Delete User</p>
+            </button>
+            <button type="button" class="ad-rightdash-btn" id="adm-not" onclick="window.location.href = 'admin_notification';">
+                <i class="fi fi-rr-bell"></i>
+                <p>Send Notifications</p>
+            </button>
+        </div>
+        <div class="admin-rightdash-bottom">
+            <h2><a href="/logout">Log-Out</a></h2>
+        </div>
+    </div>
+    <script src="/js/admin-messages.js"></script>
+    <script>
+        const itemsPerPage = 2;
+        let currentPage = 1;
+
+        function showPage(page) {
+            currentPage = page;
+            const items = document.querySelectorAll('.timeline-item');
+            items.forEach((item, index) => {
+                if (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            setupPagination(items.length, page);
+        }
+
+        function setupPagination(totalItems, currentPage) {
+            const paginationControls = document.getElementById('paginationControls');
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            const maxPageButtons = 3;
+            paginationControls.innerHTML = '';
+
+            const createPageButton = (pageNum) => {
+                const pageBtn = document.createElement('button');
+                pageBtn.className = 'page-btn';
+                pageBtn.textContent = pageNum;
+                pageBtn.onclick = () => showPage(pageNum);
+                if (pageNum === currentPage) {
+                    pageBtn.style.fontWeight = 'bold';
+                }
+                paginationControls.appendChild(pageBtn);
+            };
+
+            if (totalPages <= maxPageButtons) {
+                for (let i = 1; i <= totalPages; i++) {
+                    createPageButton(i);
+                }
+            } else {
+                if (currentPage > 1) {
+                    createPageButton(1);
+                }
+                if (currentPage > maxPageButtons - 1) {
+                    const ellipsisStart = document.createElement('span');
+                    ellipsisStart.textContent = '...';
+                    paginationControls.appendChild(ellipsisStart);
+                }
+
+                let startPage = Math.max(currentPage - Math.floor(maxPageButtons / 2), 1);
+                let endPage = Math.min(startPage + maxPageButtons - 1, totalPages);
+
+                if (endPage - startPage + 1 < maxPageButtons) {
+                    startPage = Math.max(endPage - maxPageButtons + 1, 1);
+                }
+
+                for (let i = startPage; i <= endPage; i++) {
+                    createPageButton(i);
+                }
+
+                if (endPage < totalPages) {
+                    const ellipsisEnd = document.createElement('span');
+                    ellipsisEnd.textContent = '...';
+                    paginationControls.appendChild(ellipsisEnd);
+                    createPageButton(totalPages);
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const totalItems = document.querySelectorAll('.timeline-item').length;
+            setupPagination(totalItems, currentPage);
+            showPage(currentPage);
+        });
+    </script>
+</body>
+</html>

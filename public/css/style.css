@@ -787,3 +787,129 @@ table td {
 .sel-week{
     width: 23vw;
 }
+
+.send-notification-input {
+    width: 320px;
+    height: 50px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: #1C2025;
+    background-color: #fff;
+    border: 1px solid #DAE2ED;
+    box-shadow: 0px 2px 4px rgba(0,0,0, 0.05);
+    text-align: left;
+    vertical-align: top;
+}
+
+.message-label{
+    font-size: 2;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+.send-notification-button {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    background-color: #0D5463;
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: white;
+    transition: all 150ms ease;
+    cursor: pointer;
+    border: 1px solid #0D5463;
+    box-shadow: 0 2px 1px rgba(45, 45, 60, 0.2)
+}
+
+  .send-notification-button:hover {
+    background-color: #094855;
+  }
+
+  .send-notification-button.base--active {
+    background-color: #063C47;
+    box-shadow: none;
+    transform: scale(0.99);
+  }
+
+  .send-notification-button.base--focusVisible {
+    box-shadow: 0 0 0 4px #99D8E5;
+    outline: none;
+  }
+  .send-notification-button.base--disabled {
+    background-color: #434D5B;
+    color: #DAE2ED;
+    border: 0;
+    cursor: default;
+    box-shadow: none;
+    transform: scale(1);
+  }
+
+  .notification-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.timeline-item {
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f0f0;
+    padding: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.timeline-date {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.timeline-message {
+    margin-bottom: 8px;
+}
+
+.delete {
+    align-self: flex-end;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pagination {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.page-btn {
+    background-color: #0D5463;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.page-btn[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.page-btn:hover:not([disabled]) {
+    background-color: #0056b3;
+}
+
+.pagination span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+}
