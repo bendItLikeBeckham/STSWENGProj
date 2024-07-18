@@ -38,16 +38,13 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       })
 
       it('should verify pagination behavior', () => {
-        // Click on page 3 button
         cy.get('.pagination .page-btn').contains('3').click()
     
-        // Assert that the page 3 button is bold
         cy.get('.pagination .page-btn')
           .contains('3')
           .should('have.css', 'font-weight')
           .and('eq', '700')
     
-        // Example: Assert that specific items are visible on page 3
         cy.get('.timeline-item').should('have.length.greaterThan', 0)
       })
   
