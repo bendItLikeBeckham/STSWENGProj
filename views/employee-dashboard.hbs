@@ -134,9 +134,17 @@
     </div>
    <div class="ad-dash-spacer"></div>
     <div class="admin-rightdash-mid">
+        <button type="button" class="ad-rightdash-btn">
+                <i class="fi fi-rr-employee-man"></i>
+                <p><a href="/employee_dashboard">Employee Dashboard</a></p>
+        </button>
         <button type="button" class="ad-rightdash-btn" onclick="redirect_to_clockpage()">
-            <i class="fi fi-rr-calendar-clock"></i>
-            <p>Time Log</p>
+                <i class="fi fi-rr-calendar-clock"></i>
+                <p><a href="/employee_clockpage">Time Log</a></p>
+        </button>
+        <button type="button" class="ad-rightdash-btn" id="adm-not" onclick="window.location.href = 'admin_notification';">
+                <i class="fi fi-rr-bell"></i>
+                <p><a href="/employee_notification">Company Notifications</a></p>
         </button>
     </div>
     <div class="admin-rightdash-bottom">

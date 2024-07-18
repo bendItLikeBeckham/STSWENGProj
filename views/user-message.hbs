@@ -1,17 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>User Notification System</title>
+    <title>Admin Notification System</title>
+    <link rel="stylesheet" href="/css/style.css"> 
+    <link rel="icon" type="image/x-icon" href="/css/images/greenatwork-logo.png">
+    <script src="/js/script.js"></script> 
 </head>
 <body>
-    <h1>Notifications</h1>
-    <ul id="notificationsList">
-        {{#each notifications}}
-        <li>
-            {{this.notification_Message}} - {{this.notification_Date}}
-        </li>
-        {{/each}}
-    </ul>
+    <div class="left-payroll admin-leftdash">
+        <h1>Notifications</h1>
+        <div class="notification-timeline" id="notificationsList">
+            {{#each notifications}}
+            <div class="timeline-item">
+                <p class="timeline-date">{{this.notification_Date}}</p>
+                <p class="timeline-message">{{this.notification_Message}}</p>
+            </div>
+            {{/each}}
+        </div>
+        <div class="pagination" id="paginationControls"> </div>
+    </div>
+    <div class="right-payroll right-emp-dash">
+        <div class="admin-rightdash-top">
+            <h1>Hello!</h1>
+        </div>
+    <div class="ad-dash-spacer"></div>
+        <div class="admin-rightdash-mid">
+            <button type="button" class="ad-rightdash-btn">
+                <i class="fi fi-rr-employee-man"></i>
+                <p><a href="/employee_dashboard">Employee Dashboard</a></p>
+            </button>
+            <button type="button" class="ad-rightdash-btn" onclick="redirect_to_clockpage()">
+                <i class="fi fi-rr-calendar-clock"></i>
+                <p><a href="/employee_clockpage">Time Log</a></p>
+            </button>
+            <button type="button" class="ad-rightdash-btn" id="adm-not" onclick="window.location.href = 'admin_notification';">
+                <i class="fi fi-rr-bell"></i>
+                <p><a href="/employee_notification">Company Notifications</a></p>
+            </button>
+        </div>
+        <div class="admin-rightdash-bottom">
+            <br><br>
+            <h2><a href="/logout">Log-Out</a></h2>   
+        </div>
+    </div>
+    </div>
     <script src="/js/admin-messages.js"></script>
+    <script>
+        const itemsPerPage = 4;
+        let currentPage = 1;
+
+        function showPage(page) {
+            currentPage = page;
+            const items = document.querySelectorAll('.timeline-item');
+            items.forEach((item, index) => {
+                if (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            setupPagination(items.length, page);
+        }
+
+        function setupPagination(totalItems, currentPage) {
+            const paginationControls = document.getElementById('paginationControls');
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            const maxPageButtons = 3;
+            paginationControls.innerHTML = '';
+
+            const createPageButton = (pageNum) => {
+                const pageBtn = document.createElement('button');
+                pageBtn.className = 'page-btn';
+                pageBtn.textContent = pageNum;
+                pageBtn.onclick = () => showPage(pageNum);
+                if (pageNum === currentPage) {
+                    pageBtn.style.fontWeight = 'bold';
+                }
+                paginationControls.appendChild(pageBtn);
+            };
+
+            if (totalPages <= maxPageButtons) {
+                for (let i = 1; i <= totalPages; i++) {
+                    createPageButton(i);
+                }
+            } else {
+                if (currentPage > 1) {
+                    createPageButton(1);
+                }
+                if (currentPage > maxPageButtons - 1) {
+                    const ellipsisStart = document.createElement('span');
+                    ellipsisStart.textContent = '...';
+                    paginationControls.appendChild(ellipsisStart);
+                }
+
+                let startPage = Math.max(currentPage - Math.floor(maxPageButtons / 2), 1);
+                let endPage = Math.min(startPage + maxPageButtons - 1, totalPages);
+
+                if (endPage - startPage + 1 < maxPageButtons) {
+                    startPage = Math.max(endPage - maxPageButtons + 1, 1);
+                }
+
+                for (let i = startPage; i <= endPage; i++) {
+                    createPageButton(i);
+                }
+
+                if (endPage < totalPages) {
+                    const ellipsisEnd = document.createElement('span');
+                    ellipsisEnd.textContent = '...';
+                    paginationControls.appendChild(ellipsisEnd);
+                    createPageButton(totalPages);
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const totalItems = document.querySelectorAll('.timeline-item').length;
+            setupPagination(totalItems, currentPage);
+            showPage(currentPage);
+        });
+    </script>
 </body>
 </html>
