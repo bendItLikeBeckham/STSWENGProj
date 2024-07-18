@@ -17,6 +17,7 @@ const admin_empman_payroll_controllers = require('../controllers/admin-empman-pa
 const update_payroll_controllers = require('../controllers/update-payroll-controller');
 const forgot_password_controllers = require('../controllers/forgot-password-controller');
 const admin_notifs_controllers = require('../controllers/admin-notifs-controller');
+const admin_edit_user_controllers = require('../controllers/admin-edit-user-controller.js')
 
 const register_controllers = require('../controllers/register-controller');
  
@@ -121,5 +122,9 @@ app.get('/display_forgot_password', initial_process, admin_access, admin_notifs_
 app.post('/delete_forgot_password', initial_process, admin_access, forgot_password_controllers.post_delete_forgot_password);
 
 app.post('/update_employee_payroll', update_payroll_controllers.post_update_employee_payroll);
+
+app.get('/edit_user', initial_process, admin_access, admin_edit_user_controllers.get_edit_user);
+app.get('/search_user', initial_process, admin_access, admin_edit_user_controllers.get_search_user);
+app.post('/update_user', initial_process, admin_access, admin_edit_user_controllers.post_update_user);
 
 module.exports = app;
