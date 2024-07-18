@@ -164,6 +164,9 @@ body{
     flex-direction: column;
     background: linear-gradient(to right, #282c34, #202328);
 }
+.left-payroll h1{
+    color:  white;
+}
 .right-payroll{
     width: 20vw;
     height: 100%;
@@ -643,6 +646,7 @@ table td {
     display: flex;
     margin-top: 5vh;
     flex-direction: row;
+    color:white;
 }
 .num-input p{
     margin: 0;
@@ -662,6 +666,7 @@ table td {
 .num-input-1 p{
     margin-bottom: 2vh;
     font-size: 2.5vh;
+    color: white;
 }
 .num-input-1 h3{
     color: white;
@@ -699,6 +704,7 @@ table td {
     width: 100%;
     margin-top: 5vh;
     font-size: 2.5vh;
+    color: white;
 }
 .emp-info div{
     width: 100%;
@@ -721,7 +727,7 @@ table td {
 }
 .ad-leftdash-btn{
     border: 0;
-    background-color: var(--green-m);
+    background-color: darkcyan;
     font-family: 'Archivo', sans-serif;
     border-radius: 50px;
     padding: 1vh;
@@ -797,8 +803,8 @@ table td {
     line-height: 1.5;
     padding: 8px 12px;
     border-radius: 8px;
-    color: #1C2025;
-    background-color: #fff;
+    color: #fff;
+    background-color: #1e1e1e;
     border: 1px solid #DAE2ED;
     box-shadow: 0px 2px 4px rgba(0,0,0, 0.05);
     text-align: left;
@@ -858,10 +864,11 @@ table td {
 .timeline-item {
     display: flex;
     flex-direction: column;
-    background-color: #f0f0f0;
+    background-color: #1e1e1e;
     padding: 5px;
     border-radius: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid whitesmoke;
+    color: rgb(234, 223, 223);
 }
 
 .timeline-date {
@@ -912,4 +919,13 @@ table td {
     align-items: center;
     justify-content: center;
     padding: 8px 16px;
+    color: white;
+}
+
+.fi.fi-rr-bell {
+    color: darkcyan;
+}
+
+.fi.fi-rr-users-alt{
+    color: darkcyan;
 }

@@ -29,7 +29,7 @@
                 <i class="fi fi-rr-employee-man"></i>
                 <p><a href="/employee_dashboard">Employee Dashboard</a></p>
             </button>
-            <button type="button" class="ad-rightdash-btn" onclick="redirect_to_clockpage()">
+            <button type="button" class="ad-rightdash-btn">
                 <i class="fi fi-rr-calendar-clock"></i>
                 <p><a href="/employee_clockpage">Time Log</a></p>
             </button>
@@ -90,6 +90,7 @@
                 if (currentPage > maxPageButtons - 1) {
                     const ellipsisStart = document.createElement('span');
                     ellipsisStart.textContent = '...';
+                    ellipsisStart.classList.add('pagination-ellipsis');
                     paginationControls.appendChild(ellipsisStart);
                 }
 
