@@ -529,11 +529,11 @@ table td {
     border-color: #0D5463;
 }
 .dropdown input {
-    background-color: var(--white-hov);
+    background-color: #0D5463;
     border-width: 0;
     font-family: 'Archivo', sans-serif;
     margin-left: 3vw;
-    color: var(--darkgray-m);
+    color: white;
 }
 .admin-leftdash table{
     width: 100%;
@@ -815,6 +815,7 @@ table td {
     font-size: 2;
     font-weight: bold;
     unicode-bidi: isolate;
+    color: white;
 }
 
 .send-notification-button {

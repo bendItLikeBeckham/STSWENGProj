@@ -36,7 +36,7 @@
                     <option>Last Week</option>
                     <option>2 Weeks Ago</option>
                 </select>
-        </div>
+            </div>
             <div class="num-input">
                 <p>Pay Per Hour: ₱{{emp_wpay.Weekly_Hourly_Rate}}</p>
                 <form id="PPH-form-id">
@@ -55,9 +55,7 @@
                 <th>Time-Out</th>
                 <th>Total Time</th>
                 <th>Total Valid Hours</th>
-                <th>Total Valid Minutes</th>
                 <th>Total Hour Rate</th>
-                <th>Total Minute Rate</th>
                 <th>Total Day Pay</th>
             </tr>
             <tr><!-- Placeholder info -->
@@ -66,9 +64,7 @@
                 <td>{{emp_wpay.Mon_Time_Out}}</td>
                 <td>{{emp_wpay.Mon_Hours}}:{{emp_wpay.Mon_Minutes}}</td>
                 <td>{{emp_wpay.Mon_Hours}}</td>
-                <td>{{emp_wpay.Mon_Minutes}}</td>
                 <td>₱ {{Total_Hour_Rate.[1]}}</td>
-                <td>₱ {{Total_Minute_Rate.[1]}}</td>
                 <td>₱ {{emp_wpay.Mon_Total_Pay}}</td>
             </tr>
             <tr>
@@ -77,9 +73,7 @@
                 <td>{{emp_wpay.Tue_Time_Out}}</td>
                 <td>{{emp_wpay.Tue_Hours}}:{{emp_wpay.Tue_Minutes}}</td>
                 <td>{{emp_wpay.Tue_Hours}}</td>
-                <td>{{emp_wpay.Tue_Minutes}}</td>
                 <td>₱ {{Total_Hour_Rate.[2]}}</td>
-                <td>₱ {{Total_Minute_Rate.[2]}}</td>
                 <td>₱ {{emp_wpay.Tue_Total_Pay}}</td>
             </tr>
             <tr>
@@ -88,9 +82,7 @@
                 <td>{{emp_wpay.Wed_Time_Out}}</td>
                 <td>{{emp_wpay.Wed_Hours}}:{{emp_wpay.Wed_Minutes}}</td>
                 <td>{{emp_wpay.Wed_Hours}}</td>
-                <td>{{emp_wpay.Wed_Minutes}}</td>
                 <td>₱ {{Total_Hour_Rate.[3]}}</td>
-                <td>₱ {{Total_Minute_Rate.[3]}}</td>
                 <td>₱ {{emp_wpay.Wed_Total_Pay}}</td>
             </tr>
             <tr>
@@ -99,9 +91,7 @@
                 <td>{{emp_wpay.Thu_Time_Out}}</td>
                 <td>{{emp_wpay.Thu_Hours}}:{{emp_wpay.Thu_Minutes}}</td>
                 <td>{{emp_wpay.Thu_Hours}}</td>
-                <td>{{emp_wpay.Thu_Minutes}}</td>
                 <td>₱ {{Total_Hour_Rate.[4]}}</td>
-                <td>₱ {{Total_Minute_Rate.[4]}}</td>
                 <td>₱ {{emp_wpay.Thu_Total_Pay}}</td>
             </tr>
             <tr>
@@ -110,9 +100,7 @@
                 <td>{{emp_wpay.Fri_Time_Out}}</td>
                 <td>{{emp_wpay.Fri_Hours}}:{{emp_wpay.Fri_Minutes}}</td>
                 <td>{{emp_wpay.Fri_Hours}}</td>
-                <td>{{emp_wpay.Fri_Minutes}}</td>
                 <td>₱ {{Total_Hour_Rate.[5]}}</td>
-                <td>₱ {{Total_Minute_Rate.[5]}}</td>
                 <td>₱ {{emp_wpay.Fri_Total_Pay}}</td>
             </tr>
             <tr>
@@ -121,9 +109,7 @@
                 <td>{{emp_wpay.Sat_Time_Out}}</td>
                 <td>{{emp_wpay.Sat_Hours}}:{{emp_wpay.Sat_Minutes}}</td>
                 <td>{{emp_wpay.Sat_Hours}}</td>
-                <td>{{emp_wpay.Sat_Minutes}}</td>
                 <td>₱ {{Total_Hour_Rate.[6]}}</td>
-                <td>₱ {{Total_Minute_Rate.[6]}}</td>
                 <td>₱ {{emp_wpay.Sat_Total_Pay}}</td>
             </tr>
             <tr>
@@ -132,15 +118,25 @@
                 <td>{{emp_wpay.Sun_Time_Out}}</td>
                 <td>{{emp_wpay.Sun_Hours}}:{{emp_wpay.Sun_Minutes}}</td>
                 <td>{{emp_wpay.Sun_Hours}}</td>
-                <td>{{emp_wpay.Sun_Minutes}}</td>
                 <td>₱ {{Total_Hour_Rate.[0]}}</td>
-                <td>₱ {{Total_Minute_Rate.[0]}}</td>
                 <td>₱ {{emp_wpay.Sun_Total_Pay}}</td>
             </tr>
         </table>
     </div>
     <div class="empman-btm">
         <div class="num-input-1">
+            <p>Additional: ₱{{emp_wpay.Weekly_Total_Additional}}</p>
+            <form id="additional-form-id">
+                <input type="number" id="add-id"> 
+                <input type="hidden" name="payroll-id" value="{{emp_wpay._id}}">
+                <button type="button" id="payroll-additional-changes-btn">SUBMIT</button>
+            </form>
+            <p>Advance: ₱{{emp_wpay.Weekly_Total_Advance}}</p>
+            <form id="advance-form-id">
+                <input type="number" id="adv-id"> 
+                <input type="hidden" name="payroll-id" value="{{emp_wpay._id}}">
+                <button type="button" id="payroll-advance-changes-btn">SUBMIT</button>
+            </form>
             <p>Deduction: ₱{{emp_wpay.Weekly_Total_Deduction}}</p>
             <form id="deduction-form-id">
                 <input type="number" id="ded-id">
@@ -173,7 +169,7 @@
             <i class="fi fi-rr-users-alt"></i>
             <p>Add/Delete User</p>
         </button>
-        <button type="button" class="ad-rightdash-btn" id="adm-not" onclick="window.location.href = 'admin_notification';">
+        <button type="button" class="ad-rightdash-btn" id="adm-not" onclick="window.location.href = 'admin_notifs';">
         <i class="fi fi-rr-bell"></i>
         <p>Send Notifications</p>
         </button>
