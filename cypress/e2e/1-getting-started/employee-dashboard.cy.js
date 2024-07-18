@@ -10,10 +10,6 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   return true
 })
 
-
-  
-  
-  
   describe('Employee Clockpage Test Suite', () => {
       beforeEach(() => {
         cy.visit('http://localhost:3000')
@@ -39,31 +35,27 @@ Cypress.on('uncaught:exception', (err, runnable) => {
       })
 
     it('should show the table for current week', () => {
-        cy.get('#emp-dropdown-week-id').select('Current Week').should('have.value', 'Current Week')
-
-        checkTable('Current Week')
+        cy.wait(1000); 
+        cy.get('#emp-dropdown-week-id').select('Current Week').should('have.value', 'Current Week');
+        checkTable('Current Week');
       })
       
-      it('should show the table for last week', () => {
-
-        cy.get('#emp-dropdown-week-id').select('Last Week').should('have.value', 'Last Week')
-    
-        checkTable('Last Week')
+    it('should show the table for last week', () => {
+        cy.wait(1000); 
+        cy.get('#emp-dropdown-week-id').select('Last Week').should('have.value', 'Last Week');
+        checkTable('Last Week');
       })  
 
-      it('should show the table for 2 weeks ago', () => {
-
-        cy.get('#emp-dropdown-week-id').select('2 Weeks Ago').should('have.value', '2 Weeks Ago')
-    
-        checkTable('2 Weeks Ago')
+    it('should show the table for 2 weeks ago', () => {
+        cy.wait(1000); 
+        cy.get('#emp-dropdown-week-id').select('2 Weeks Ago').should('have.value', '2 Weeks Ago');
+        checkTable('2 Weeks Ago');
       })  
     
     
     it("should log-out", () => {
       cy.get(".admin-rightdash-bottom h2").click()
-  
       cy.url().should("include", "http://localhost:3000")
-  
     })    
   
 
@@ -83,6 +75,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
           cy.get('td').eq(5).should('not.contain', 'N/A')
           cy.get('td').eq(6).should('not.contain', 'N/A') 
       })
+    
     }
 
     })
