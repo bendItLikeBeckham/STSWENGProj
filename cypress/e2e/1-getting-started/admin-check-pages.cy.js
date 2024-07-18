@@ -33,8 +33,10 @@ describe('Application Exploration Admin Test', () =>{
 
       it('should go to notifications', () =>{
         cy.get('#adm-not').click()
-        cy.get('.admin-leftdash-top > h2').should('have.text', "Admin Notifications")
+        cy.get('.left-payroll > h1').should('have.text', "Notifications")
       })
+
+      
 
       /*it('should go to employee records', () =>{
         cy.get('#dropdown').click()
@@ -50,4 +52,10 @@ describe('Application Exploration Admin Test', () =>{
         cy.url().should("include", "/admin_empman_payroll")
       })*/
 
+      it("should log-out", () => {
+        cy.get(".admin-rightdash-bottom h2").click()
+    
+        cy.url().should("include", "http://localhost:3000")
+    
+      })
 })  

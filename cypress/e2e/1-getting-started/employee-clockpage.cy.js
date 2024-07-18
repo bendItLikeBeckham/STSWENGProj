@@ -50,5 +50,23 @@ describe('Employee Clockpage Test Suite', () => {
 
     cy.get("#popup-4 .close-btn").click()
   })
+
+  it('should be able to access the employee dashboard page', () =>{
+    cy.get(".employee_dashboard").click()
+    cy.url().should("include", "/employee_dashboard")
+  })  
+
+  it('should be able to access the company notification page', () =>{
+    cy.get(".employee_notification").click()
+    cy.url().should("include", "/employee_notification")
+  })  
+
+  it("should log-out", () => {
+    cy.get(".admin-rightdash-bottom h2").click()
+    cy.url().should("include", "http://localhost:3000")
+
+  })
+  
+
   })
   
