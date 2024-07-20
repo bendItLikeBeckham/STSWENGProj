@@ -22,6 +22,8 @@ const admin_edit_user_controllers = require('../controllers/admin-edit-user-cont
 const register_controllers = require('../controllers/register-controller');
 
 const messages_controller = require('../controllers/messages-controller')
+
+const employee_edit_user_controller = require('../controllers/employee-edit-user.js')
  
 const express = require('express');
 const app = express();
@@ -133,5 +135,9 @@ app.get('/admin_notification', initial_process, admin_access, messages_controlle
 app.get('/employee_notification', initial_process, employee_wfh_access, employee_access, messages_controller.get_employee_message);
 app.post('/add_message', messages_controller.add_notification);
 app.post('/delete_message', messages_controller.delete_notification);
+
+app.get('/employee_edit',initial_process,  employee_wfh_access, employee_edit_user_controller.get_employee_edit_user);
+app.post('/employee_update_user',initial_process,  employee_wfh_access,employee_edit_user_controller.post_employee_update_user);
+
 
 module.exports = app;
