@@ -70,4 +70,6 @@ app.listen(port, hostname, function() {
     console.log(`Server running at http://${hostname}:${port}`);
 });
 
+
+//Remove Comment if you want to do unit testing
 //export default app;

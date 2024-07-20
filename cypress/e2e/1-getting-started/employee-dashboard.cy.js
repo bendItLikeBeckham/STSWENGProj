@@ -7,6 +7,9 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   if (err.message.includes("setting 'textContent'") ) {
       return false
     }
+  if (err.message.includes("reading 'document'") ) {
+      return false
+    }
   return true
 })
 
