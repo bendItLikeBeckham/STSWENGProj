@@ -658,6 +658,12 @@ table td {
     flex-direction: row;
     color:white;
 }
+
+.num-input input{
+    background-color: #1e1e1e;
+    color: #fff;
+}
+
 .num-input p{
     margin: 0;
     margin-left: 2vw;    
@@ -681,6 +687,35 @@ table td {
 .num-input-1 h3{
     color: white;
 }
+
+.num-input-1 input{
+    border: none;
+    border-radius: 4px;
+    background-color: #1e1e1e;
+    color: #fff;
+}
+
+.num-input-1 button{
+    background-color: darkcyan;
+    color: white;
+    cursor: pointer;
+}
+
+
+.num-input button{
+    background-color: darkcyan;
+    color: white;
+    cursor: pointer;
+}
+
+.num-input-1 button:hover{
+    background-color: #21a1f1;
+}
+
+.num-input button:hover{
+    background-color: #21a1f1;
+}
+
 .empman-btm h1{
     color: darkcyan;
     margin-top: 5vh;
