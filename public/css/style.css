@@ -473,6 +473,7 @@ body{
     flex-direction: column;
     width: 100%;
 }
+
 .admin-rightdash-mid button{
     width: 90%;
     background-color: #202328;
@@ -994,3 +995,20 @@ table td {
     box-shadow: none;
     transform: scale(1);
   }
+
+  .search_employee {
+    color: white;
+  }
+
+  #employeeDetails h2{
+    color: white;
+  }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: auto; 
+    background: linear-gradient(to right, #282c34, #202328);
+    color: #fff; 
+}
