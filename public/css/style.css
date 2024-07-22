@@ -930,3 +930,67 @@ table td {
 .fi.fi-rr-users-alt{
     color: darkcyan;
 }
+
+.fi.fi-rr-settings{
+    color: darkcyan;
+}
+
+#editEmployeeForm{
+    color: white;
+}
+
+
+.edit_profile{
+    width: 320px;
+    height: 25px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: #fff;
+    background-color: #1e1e1e;
+    border: 1px solid #DAE2ED;
+    box-shadow: 0px 2px 4px rgba(0,0,0, 0.05);
+    text-align: left;
+    vertical-align: top;
+}
+
+.submit_edit {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    background-color: #0D5463;
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: white;
+    transition: all 150ms ease;
+    cursor: pointer;
+    border: 1px solid #0D5463;
+    box-shadow: 0 2px 1px rgba(45, 45, 60, 0.2)
+}
+
+  .submit_edit:hover {
+    background-color: #094855;
+  }
+
+  .submit_edit.base--active {
+    background-color: #063C47;
+    box-shadow: none;
+    transform: scale(0.99);
+  }
+
+  .submit_edit.base--focusVisible {
+    box-shadow: 0 0 0 4px #99D8E5;
+    outline: none;
+  }
+  .submit_edit.base--disabled {
+    background-color: #434D5B;
+    color: #DAE2ED;
+    border: 0;
+    cursor: default;
+    box-shadow: none;
+    transform: scale(1);
+  }
