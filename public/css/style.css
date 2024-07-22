@@ -511,7 +511,7 @@ table td {
 
 .dropdown{
     display: flex;
-    background-color: #0D5463; /* Light blue background */
+    background-color: #0D5463; 
     color: white;
     width: 28%;
     height: 6vh;
@@ -634,10 +634,19 @@ table td {
     display: flex;
     justify-content: space-between;
 }
+.dropdown-page{
+    display: flex;
+    background-color: #0D5463;
+    color: white;
+    height: 25px;
+    border-radius: 10px;
+}
 .dropdown-page select{
     font-family: 'Archivo', sans-serif;
-    font-size: 20px;
+    font-size: 15px;
     width: 250px;
+    background-color: #0D5463;
+    color: white;
 }
 .empman-midhead{
     display: flex;
