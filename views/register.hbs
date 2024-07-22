@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="/css/style.css"> 
     <link rel="icon" type="image/x-icon" href="/css/images/greenatwork-logo.png">
     <style>
-        /* Specific styles for this form */
         .form-container {
             background-color: #282c34;
             padding: 20px;
@@ -13,6 +12,13 @@
             width: auto;
             margin: 0 auto;
             border: 2px solid #008b8b;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px; 
+        }
+
+        .form-column {
+            flex: 1; 
         }
 
         .form-header {
@@ -72,6 +78,7 @@
         </div>
         <br>
         <form class="form-container">
+        <div class="form-column">
             <div class="form-group">
                 <label for="firstName">First Name:</label>
                 <input type="text" id="firstName" name="firstName" placeholder="First Name">
@@ -88,6 +95,8 @@
                 <label for="contactNumber">Contact Number:</label>
                 <input type="number" id="contactNumber" name="contactNumber" placeholder="eg.0967897423">
             </div>
+        </div>
+        <div class="form-column">
             <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" placeholder="Email">
@@ -106,6 +115,7 @@
             <div class="form-group">
                 <input type="submit" value="Confirm Add Employee">
             </div>
+        </div>
         </form>
     </div>
 </div>
