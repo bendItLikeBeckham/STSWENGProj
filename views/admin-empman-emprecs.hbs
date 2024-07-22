@@ -9,7 +9,7 @@
 <body>
 <div class="left-payroll admin-leftdash">
     <div class="admin-leftdash-top">
-        <h2>Employee Management</h2>
+        <h1>Employee Management</h1>
         <div class="empman-header">
             <div class="dropdown-page">
                 <select id="dropdown" onchange="navigate()">
@@ -30,23 +30,26 @@
             </div>  
         </div>
         <div class="emp-info">
-            <div><!-- Placeholder info -->
-                
-                <h2><span>{{emp_sum.First_Name}}</span> <span>{{emp_sum.Last_Name}}</span></h2>
-                <br>
+            <div class="left-emp-info"><!-- Placeholder info -->
+                <i class="fi fi-sr-employee-man-alt"></i>   
+                <h1><span>{{emp_sum.First_Name}}</span> <span>{{emp_sum.Last_Name}}</span></h1>
+                <h5><span>{{emp_sum.Employee_Type}}</span></h5>
+              </div>
+            <div class="right-emp-info">
                 <p>Address: <span>{{emp_sum.Address}}</span></p> 
                 <p>Contact Number: <span>{{emp_sum.Contact_Number}}</span></p> 
                 <p>Email: <span>{{emp_sum.Email}}</span></p> 
                 <p>Password: <span>{{emp_sum.Password}}</span></p>
-                <p>Company Role: <span>{{emp_sum.Employee_Type}}</span></p>
-              </div>
-              <div>
-                <h2>Time-In Status: <span class="status-on">{{emp_sum.IsTimedIn}}</span></h2>
-              </div>
-
+                <h2>Time-In Status: 
+                    {{#if emp_sum.IsTimedIn}}
+                        <h4><span class="status-on">On The Clock</span></h5>
+                    {{else}}
+                        <h4><span class="status-off">Off The Clock</span></h5>
+                    {{/if}}
+                </h2>
+            </div>
         </div>
-    </div>
-    
+    </div> 
 </div>
 <script>
     function navigate() {

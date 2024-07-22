@@ -1056,3 +1056,20 @@ table td {
     background: linear-gradient(to right, #282c34, #202328);
     color: #fff; 
 }
+
+.fi.fi-sr-employee-man-alt {
+    font-size: 200px;
+    color: darkcyan;
+}
+
+.left-emp-info {
+    padding-left: 100px;
+}
+.right-emp-info {
+    padding-right: 150px;
+}
+
+.profile_gif {
+    height: 150px;
+    width: 150px;
+}
