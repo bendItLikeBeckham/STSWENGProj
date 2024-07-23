@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function(){
         var email_input = document.getElementById("email").value;
         var password_input = document.getElementById("password").value;
         var address_input = document.getElementById("address").value;
-        var employee_type_input = document.getElementById("employee-type").value;
+        var employee_type_input = document.getElementById("employeeType").value;
 
         if (!first_name_input || !last_name_input || !password_input || !address_input) {
             alert("Please fill in all fields");
@@ -53,21 +53,14 @@ document.addEventListener("DOMContentLoaded", function(){
             });
             const data = await response.json();
             if(data.success){
-                togglePopup();
-                togglePopup2();
+                alert(`Successfully created a new account.`);
             }else{
-                console.log(data.message);
+                alert(`Account creation unsuccessful, please try again.`);
+
             }
         }catch(error){
             console.error(error);
         }
     }
-
-
 })
-function togglePopup(){
-    document.getElementById("popup-2").classList.toggle("active");
-}
-function togglePopup2(){
-    document.getElementById("popup-3").classList.toggle("active");
-};
+

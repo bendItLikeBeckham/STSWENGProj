@@ -17,7 +17,7 @@
                 <br>     
         </div>
         <div>
-            <button type="button" onclick="togglePopup()" style="text-decoration: none; color: darkcyan; background: none; border: none; cursor: pointer;">Forgot Password?</button>
+            <button type="button" onclick="window.location.href = 'get_verify_email';" style="text-decoration: none; color: darkcyan; background: none; border: none; cursor: pointer;">Forgot Password?</button>
         </div>
         <div>
             <p id="error_issue" style="font-weight: bold; color: red; text-align: center;"></p>
@@ -33,14 +33,11 @@
     <div class="content">
         <div class="close-btn" onclick="closeBtn()">&times;</div>
         <h1>Please Enter Your Email</h1>
-        <form id="forgot-password-form-id">
-            <div class="log-field">
-                <input type="email" name="email" placeholder="Email" id="for-pas-email" class="log-text">
-            </div>
-            <div>
-                <button type="button" id="forgot-password-button-id"><h2>Submit</h2></button>
-            </div>
-        </form>
+            <form id="sendOTPForm">
+                <label for="forgot-email">Email:</label>
+                <input type="email" id="forgot-email" name="email" required>
+                <button type="submit">Send OTP</button>
+            </form>
     </div>
 </div>
 
@@ -59,5 +56,6 @@
     } 
 </script>
 <script src="/js/login.js"></script>
+<script src="/js/new-password.js"></script>
 </body>
 </html>

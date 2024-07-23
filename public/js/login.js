@@ -49,13 +49,14 @@ document.addEventListener("DOMContentLoaded", function(){
 
 function togglePopup(){
     closeBtn();
-    response_forms();
+    //response_forms();
 }
 
 function closeBtn(){
     document.getElementById("popup-1").classList.toggle("active");
 }
 
+/*
 function response_forms(){
     var forgot_password_button_submit = document.getElementById("forgot-password-button-id");
     forgot_password_button_submit.addEventListener('click', forgot_password_function);
@@ -94,5 +95,5 @@ async function forgot_password_function(event){
     }catch(error){
         console.error(error);
     }
-}
+}*/
 
