@@ -7,7 +7,20 @@
 </head>
 <body>
 <div class="left-payroll admin-leftdash">
-    <h1>Edit Employee</h1>
+    <h1>Edit Profile</h1>
+    <div class="emp-info">
+            <div class="left-emp-info">
+                <i class="fi fi-sr-employee-man-alt"></i>   
+                <h1><span>{{emp_sum.First_Name}}</span> <span>{{emp_sum.Last_Name}}</span></h1>
+                <h5><span>{{emp_sum.Employee_Type}}</span></h5>
+              </div>
+            <div class="right-emp-info">
+                <p>Address: <span>{{emp_sum.Address}}</span></p> 
+                <p>Contact Number: <span>{{emp_sum.Contact_Number}}</span></p> 
+                <p>Email: <span>{{emp_sum.Email}}</span></p> 
+                <p>Password: <span>{{emp_sum.Password}}</span></p>
+            </div>
+    </div>
     <div id="employeeDetails">
         <form id="editEmployeeForm" class="editEmployeeForm">
             <div>
@@ -63,5 +76,6 @@
     </div>
 </div>
     <script src="/js/user-edit.js"></script>
+    <script src="/js/employee-information.js"></script>
 </body>
 </html>
