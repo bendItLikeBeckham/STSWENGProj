@@ -32,7 +32,7 @@ const employee_change_password_controller = {
                 }
             });
             const mailOptions = {
-                from: 'your-email@gmail.com',
+                from: 'Email Verifier',
                 to: email,
                 subject: 'Email Verification',
                 html: `<p>Click <a href="${verificationLink}">here</a> to verify your email.</p>`
@@ -42,10 +42,9 @@ const employee_change_password_controller = {
                 if (error) {
                     return res.status(500).send(error.toString());
                 }
-                res.send('Verification email sent.');
                 console.log('Message sent: %s', info.messageId);
                 // Preview only available when sending through an Ethereal account
-                console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+                res.send(nodemailer.getTestMessageUrl(info));
             });
         })
     },
