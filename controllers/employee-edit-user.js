@@ -16,16 +16,6 @@ const employee_edit_user_controller = {
         } catch (err) {
             res.status(500).json({ success: false, error: err.message });
         }
-    },
-
-    post_employee_update_user_verify: async function (req, res){
-        try {
-            const {Email, Password} = req.body;
-            await employee.findOneAndUpdate({Email: Email}, {Password: Password});
-            res.json({ success: true });
-        } catch (err) {
-            res.status(500).json({ success: false, error: err.message });
-        }
     }
 }
 

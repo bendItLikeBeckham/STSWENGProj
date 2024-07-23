@@ -18,7 +18,6 @@ const database = require('./models/database.js');
 const schedule = require('node-schedule');
 const axios = require('axios');
 const MongoStore = require('connect-mongo');
-const nodemailer = require('nodemailer');
 
 const app = express();
 
