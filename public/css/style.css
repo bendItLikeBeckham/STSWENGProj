@@ -1069,6 +1069,10 @@ table td {
     padding-right: 150px;
 }
 
+.icon-div {
+    padding-left: 100px;
+}
+
 .profile_gif {
     height: 150px;
     width: 150px;
