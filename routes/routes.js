@@ -18,6 +18,7 @@ const update_payroll_controllers = require('../controllers/update-payroll-contro
 const forgot_password_controllers = require('../controllers/forgot-password-controller');
 const admin_notifs_controllers = require('../controllers/admin-notifs-controller');
 const admin_edit_user_controllers = require('../controllers/admin-edit-user-controller.js')
+const employee_change_password_controller = require('..//controllers/new-password-controller.js')
 
 const register_controllers = require('../controllers/register-controller');
 
@@ -138,6 +139,12 @@ app.post('/delete_message', messages_controller.delete_notification);
 
 app.get('/employee_edit',initial_process,  employee_wfh_access, employee_edit_user_controller.get_employee_edit_user);
 app.post('/employee_update_user',initial_process,  employee_wfh_access,employee_edit_user_controller.post_employee_update_user);
+app.post('/employee_update_user_verify', must_be_logged_out, employee_edit_user_controller.post_employee_update_user_verify);
+
+app.post('/send_email', employee_change_password_controller.send_email);
+app.get('/verify_email', employee_change_password_controller.verify_email);
+app.get('/get_verify_email', employee_change_password_controller.get_verify_email);
+
 
 
 module.exports = app;
