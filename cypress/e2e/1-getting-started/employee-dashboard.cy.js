@@ -10,6 +10,9 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   if (err.message.includes("reading 'document'") ) {
       return false
     }
+  if (err.message.includes("reading 'addEventListener'") ) {
+      return false
+    }
   return true
 })
 

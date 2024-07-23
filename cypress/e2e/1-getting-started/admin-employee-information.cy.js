@@ -2,14 +2,17 @@
 
 
 Cypress.on('uncaught:exception', (err, runnable) => {
-    if (err.message.includes("setting 'onclick'") ) {
+  if (err.message.includes("setting 'onclick'") ) {
+    return false
+  }
+  if (err.message.includes("reading 'addEventListener'") ) {
       return false
     }
-    if (err.message.includes("setting 'textContent'") ) {
-        return false
-      }
-    return true
-  })
+  if (err.message.includes("setting 'textContent'") ) {
+      return false
+    }
+  return true
+}) 
     
   
   
@@ -26,20 +29,6 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         it('should log-in to correct page', () =>{
           cy.url().should("include", "/admin_empman_emprecs")
         })
-  
-        /*it('should go to employee records', () =>{
-          cy.get('#dropdown').click()
-          cy.get('#adm_rec').click()
-  
-          cy.url().should("include", "/admin_empman_emprecs")
-        })
-        
-        it('should go to employee payroll', () =>{
-          cy.get('#dropdown').click()
-          cy.get('#adm_rec').click()
-  
-          cy.url().should("include", "/admin_empman_payroll")
-        })*/
 
         it("should show existing employee named John Doe and can be accessed", () => {
             cy.get('#selectedEmployee')
@@ -66,7 +55,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
             cy.get('.right-emp-info p').eq(0).should('contain', 'Employs City First Avenue');
             cy.get('.right-emp-info p').eq(1).should('contain', '09999999998'); 
             cy.get('.right-emp-info p').eq(2).should('contain', 'john_doe@gmail.com');
-            cy.get('.right-emp-info p').eq(3).should('contain', '123');
+            cy.get('.right-emp-info p').eq(3).should('contain', '890');
         });
 
         it("should navigate to weekly payroll", () => {

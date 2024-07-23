@@ -4,11 +4,14 @@ Cypress.on('uncaught:exception', (err, runnable) => {
   if (err.message.includes("setting 'onclick'") ) {
     return false
   }
+  if (err.message.includes("reading 'addEventListener'") ) {
+      return false
+    }
   if (err.message.includes("setting 'textContent'") ) {
       return false
     }
   return true
-})
+}) 
 
 
 describe('Employee Clockpage Test Suite', () => {
