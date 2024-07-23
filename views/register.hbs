@@ -2,10 +2,11 @@
 <html>
 <head>
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="/css/style.css"> 
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" type="image/x-icon" href="/css/images/greenatwork-logo.png">
+    <script src="/js/script.js"></script>
     <style>
-        .form-container {
+        .emp-info {
             background-color: #282c34;
             padding: 20px;
             border-radius: 8px;
@@ -14,32 +15,25 @@
             border: 2px solid #008b8b;
             display: flex;
             justify-content: space-between;
-            gap: 20px; 
+            gap: 20px;
         }
 
-        .form-column {
-            flex: 1; 
+        .emp-info div {
+            flex: 1;
         }
 
-        .form-header {
-            text-align: left;
-            margin-bottom: 20px;
+        .emp-info p {
             color: #fff;
         }
 
-        .form-group {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        .form-group label {
-            margin-right: 10px;
+        .emp-info label {
             font-weight: bold;
             color: white;
             width: 150px;
+            display: inline-block;
         }
 
-        .form-group input, .form-group select {
+        .emp-info input, .emp-info select {
             padding: 8px;
             border: none;
             border-radius: 4px;
@@ -50,118 +44,117 @@
             color: #fff;
         }
 
-        .form-group input[type="submit"] {
+        .emp-info button {
             background-color: darkcyan;
             color: white;
             cursor: pointer;
             margin-top: 10px;
-            width: auto;
             padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
         }
 
-        .form-group input[type="submit"]:hover {
+        .emp-info button:hover {
             background-color: #21a1f1;
         }
     </style>
 </head>
 <body>
-<div class="left-payroll admin-leftdash">
-    <div class="admin-leftdash-top">
-        <h2 class="form-header">Add/Delete Employee</h2>
-        <div class="empman-header">
-            <div class="dropdown-page">
-                <select onchange="navigate()">
-                    <option value="register">Add Employee</option>
-                    <option value="delete_user">Delete Employee</option>
-                </select>
-            </div>
+    <div class="popup" id="popup-2">    
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="close-btn" onclick="togglePopup()">&times;</div>
+            <h1>Confirm Register</h1>
+            <span><p>Do you want to add this user?</p></span>
+            <div class="otp-button"><button id="register-button">Confirm</button></div>
         </div>
-        <br>
-        <form class="form-container">
-        <div class="form-column">
-            <div class="form-group">
-                <label for="firstName">First Name:</label>
-                <input type="text" id="firstName" name="firstName" placeholder="First Name">
-            </div>
-            <div class="form-group">
-                <label for="lastName">Last Name:</label>
-                <input type="text" id="lastName" name="lastName" placeholder="Last Name">
-            </div>
-            <div class="form-group">
-                <label for="address">Address:</label>
-                <input type="text" id="address" name="address" placeholder="Address">
-            </div>
-            <div class="form-group">
-                <label for="contactNumber">Contact Number:</label>
-                <input type="number" id="contactNumber" name="contactNumber" placeholder="eg.0967897423">
-            </div>
-        </div>
-        <div class="form-column">
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Email">
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="Password">
-            </div>
-            <div class="form-group">
-                <label for="employeeType">Role:</label>
-                <select id="employeeType" name="employeeType">
-                    <option value="Employee">Employee</option>
-                    <option value="Admin">Admin</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Confirm Add Employee">
-            </div>
-        </div>
-        </form>
     </div>
-</div>
+    <div class="popup" id="popup-3">    
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="close-btn" onclick="togglePopup2()">&times;</div>
+            <h1>New User Has Been Added</h1>
+            <div class="otp-button"><button onclick="togglePopup2()">Confirm</button></div>
+        </div>
+    </div>
+    
+    <div class="left-payroll admin-leftdash">
+        <div class="admin-leftdash-top">
+            <h2>Add/Delete Employee</h2>
+            <div class="empman-header">
+                <div class="dropdown-page">
+                    <select onchange="navigate()">
+                        <option value="register">Add Employee</option>
+                        <option value="delete_user">Delete Employee</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="emp-info">
+                <div>
+                    <p><label for="firstName">First Name:</label><span><input type="text" name="firstName" placeholder="First Name" id="firstName"></span></p>
+                    <p><label for="lastName">Last Name:</label><span><input type="text" name="lastName" placeholder="Last Name" id="lastName"></span></p>
+                    <p><label for="address">Address:</label><span><input type="text" name="address" placeholder="Address" id="address"></span></p> 
+                    <p><label for="contactNumber">Contact Number:</label><span><input type="number" name="contactNumber" placeholder="eg.0967897423" id="contactNumber"></span></p> 
+                </div>
+                <div>
+                    <p><label for="email">Email:</label><span><input type="email" name="email" placeholder="Email" id="email"></span></p> 
+                    <p><label for="password">Password:</label><span><input type="password" name="password" placeholder="Password" id="password"></span></p>
+                    <p><label for="employee-type">Role:</label><span>
+                        <select name="employeeType" id="employee-type" class="role-dropdown">
+                            <option>Employee</option>
+                            <option>Work From Home</option>
+                            <option>Admin</option>
+                        </select></span>
+                    </p> 
+                </div>
+            </div>
+            <div class="ad-left-btn">
+                <button type="button" class="ad-leftdash-btn" onclick="togglePopup()">
+                    <p>Confirm Add Employee</p>
+                </button>
+            </div>
+        </div>
+    </div>
 
-<div class="right-payroll right-emp-dash">
-    <div class="admin-rightdash-top">
-        <h1>Admin Dashboard</h1>
-        <p>As of <span id="date">Monday, July 22, 2024</span></p> 
-        <p id="time">12:45:42</p>
-    </div>
-    <div class="ad-dash-spacer"></div>
-    <div class="admin-rightdash-mid">
-        <button type="button" class="ad-rightdash-btn" id="Ti-To-logs-id" onclick="window.location.href = 'admin_dashboard';">
-            <i class="fi fi-rr-calendar-clock"></i>
-            <p>Time-in/out Logs</p>
-        </button>
-        <button type="button" class="ad-rightdash-btn" id="emp-mgm-id" onclick="window.location.href = 'admin_empman_payroll';">
-            <i class="fi fi-rr-employee-man"></i>
-            <p>Employee Management</p>
-        </button>
-        <button type="button" class="ad-rightdash-btn" id="adm-dlt" onclick="window.location.href = 'register';">
-            <i class="fi fi-rr-users-alt"></i>
-            <p>Add/Delete User</p>
-        </button>
-        <button type="button" class="ad-rightdash-btn" id="adm-not" onclick="window.location.href = 'admin_notification';">
-            <i class="fi fi-rr-bell"></i>
-            <p>Send Notifications</p>
-        </button>
-        <button type="button" class="ad-rightdash-btn" onclick="window.location.href = 'edit_user';">
-            <i class="fi fi-rr-settings"></i>
-            <p class="admin_edit">Edit Employee Information</p>
-        </button>
-    </div>
-    <div class="admin-rightdash-bottom">
-        <h2><a href="/logout">Log-Out</a></h2>   
-    </div>
-</div>
-<script>
-    function navigate() {
-        var selectElement = document.querySelector(".dropdown-page select");
-        var selectedOption = selectElement.options[selectElement.selectedIndex];
-        if (selectedOption.value) {
-            window.location.href = selectedOption.value;
+    <script>
+        function navigate() {
+            var selectElement = document.querySelector(".dropdown-page select");
+            var selectedOption = selectElement.options[selectElement.selectedIndex];
+            if (selectedOption.value) {
+                window.location.href = selectedOption.value;
+            }
         }
-    }
-</script>
-<script src="/js/register.js"></script>
+    </script>
+    <div class="right-payroll right-emp-dash">
+        <div class="admin-rightdash-top">
+            <h1>Admin Dashboard</h1>
+            <p>As of <span id="date">Monday, January 1, 2024</span></p> 
+            <p id="time">00:00:00</p>
+        </div>
+        <div class="ad-dash-spacer"></div>
+        <div class="admin-rightdash-mid">
+            <button type="button" class="ad-rightdash-btn" id="Ti-To-logs-id" onclick="window.location.href = 'admin_dashboard';">
+                <i class="fi fi-rr-calendar-clock"></i>
+                <p>Time-in/out Logs</p>
+            </button>
+            <button type="button" class="ad-rightdash-btn" id="emp-mgm-id" onclick="window.location.href = 'admin_empman_payroll';">
+                <i class="fi fi-rr-employee-man"></i>
+                <p>Employee Management</p>
+            </button>
+            <button type="button" class="ad-rightdash-btn" onclick="window.location.href = 'register';">
+                <i class="fi fi-rr-users-alt"></i>
+                <p>Add/Delete User</p>
+            </button>
+            <button type="button" class="ad-rightdash-btn" onclick="window.location.href = 'admin_notifs';">
+                <i class="fi fi-rr-bell"></i>
+                <p>Notifications</p>
+            </button>
+        </div>
+        <div class="admin-rightdash-bottom">
+            <h2><a href="/logout">Log-Out</a></h2>   
+        </div>
+    </div>
+    <script src="/js/register.js"></script>
 </body>
 </html>
