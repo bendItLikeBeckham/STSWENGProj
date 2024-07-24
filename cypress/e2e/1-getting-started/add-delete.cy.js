@@ -26,7 +26,39 @@ Cypress.on('uncaught:exception', (err, runnable) => {
         describe('Admin Add', () => {
             it('should render register page', () =>{
                 cy.url().should('include', '/register');
-            })   
+            })
+            
+            it("should show error in adding a user with incomplete fields", () =>{
+
+              cy.get('.ad-leftdash-btn').click();
+
+
+              cy.get('#popup-2 #register-button').click();
+
+                cy.on('window:alert', (str) => {
+                  expect(str).to.equal('Please fill in all fields');
+              });
+            })
+
+            it("should show error in adding a user with invalid contact number format", () =>{
+
+              cy.get('input[name="firstName"]').type('Test');
+              cy.get('input[name="lastName"]').type('This A Test');
+              cy.get('input[name="address"]').type('123 Main St');
+              cy.get('input[name="contactNumber"]').type('09757');
+              cy.get('input[name="email"]').type('atest@gmail.com');
+              cy.get('input[name="password"]').type('123');
+              cy.get('select[name="employeeType"]').select('Employee');
+
+              cy.get('.ad-leftdash-btn').click();
+
+
+              cy.get('#popup-2 #register-button').click();
+
+              cy.on('window:alert', (str) => {
+                expect(str).to.equal('Invalid contact number format');
+            });
+            })
 
             it("should correctly add a user", () =>{
 
