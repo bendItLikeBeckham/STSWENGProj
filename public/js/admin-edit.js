@@ -28,6 +28,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
     editForm.addEventListener("submit", function(event) {
         event.preventDefault();
+
+        var first_name_input = document.getElementById("First_Name").value;
+        var last_name_input = document.getElementById("Last_Name").value;
+        var contact_input = document.getElementById("Contact_Number").value;
+        var password_input = document.getElementById("Password").value;
+        var address_input = document.getElementById("Address").value;
+
+        const contactRegex =/^09\d{9}$/
+        if (!contactRegex.test(contact_input)) {
+            alert("Invalid contact number format");
+            return;
+        }
+
+        if (!first_name_input || !last_name_input || !contact_input || !password_input|| !address_input) {
+            alert("Please fill in all fields");
+            return; 
+        }
+        
         
         const formData = {
             Email: document.getElementById("Email").value,
@@ -37,6 +55,9 @@ document.addEventListener("DOMContentLoaded", function() {
             Password: document.getElementById("Password").value,
             Address: document.getElementById("Address").value
         };
+
+        
+
 
         console.log(formData)
 

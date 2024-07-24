@@ -3,12 +3,28 @@ document.addEventListener("DOMContentLoaded", function() {
 
     editForm.addEventListener("submit", function(event) {
         event.preventDefault();
-        
+
+        const contact_input = document.getElementById("Contact_Number").value
+        const password_input = document.getElementById("Password").value
+        const address_input = document.getElementById("Address").value
+
+        const contactRegex =/^09\d{9}$/
+        if (!contactRegex.test(contact_input)) {
+            alert("Invalid contact number format");
+            return;
+        }
+
+        if (!contact_input || !password_input || !address_input) {
+            alert("Please fill in all fields");
+            return; 
+        }        
+
         const formData = {
-            Contact_Number: document.getElementById("Contact_Number").value,
-            Password: document.getElementById("Password").value,
-            Address: document.getElementById("Address").value
+            Contact_Number: contact_input,
+            Password: password_input,
+            Address: address_input
         };
+
 
         console.log(formData)
 

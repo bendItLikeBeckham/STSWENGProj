@@ -3,7 +3,9 @@ const database = require('../models/database.js');
 
 const employee_edit_user_controller = {
     get_employee_edit_user: async function (req, res){
-        res.render('user-edit');
+        const user = await employee.findOne({Email: req.session.Email});
+        console.log(user.Employee_Type)
+        res.render('user-edit', {Email: user.Email, Contact_Number: user.Contact_Number, Password: user.Password, First_Name: user.First_Name, Last_Name: user.Last_Name, Employee_type: user.Employee_type, Address: user.Address});
     },
 
     post_employee_update_user: async function (req, res){
