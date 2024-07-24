@@ -8,41 +8,33 @@
 <body>
 <div class="left-payroll admin-leftdash">
     <h1>Edit Profile</h1>
-    <div class="emp-info">
-            <div class="left-emp-info">
-                <i class="fi fi-sr-employee-man-alt"></i>   
-                <h1><span>{{emp_sum.First_Name}}</span> <span>{{emp_sum.Last_Name}}</span></h1>
-                <h5><span>{{emp_sum.Employee_Type}}</span></h5>
-              </div>
-            <div class="right-emp-info">
-                <p>Address: <span>{{emp_sum.Address}}</span></p> 
-                <p>Contact Number: <span>{{emp_sum.Contact_Number}}</span></p> 
-                <p>Email: <span>{{emp_sum.Email}}</span></p> 
-                <p>Password: <span>{{emp_sum.Password}}</span></p>
-            </div>
-    </div>
     <div id="employeeDetails">
-        <form id="editEmployeeForm" class="editEmployeeForm">
-            <div>
-                <label for="Contact_Number">Contact Number:</label>
-                <br><br>
-                <input type="text" id="Contact_Number" name="Contact_Number" class="edit_profile" required>
-            </div>
-            <div>
+        <div>
+            <i class="fi fi-sr-employee-man-alt"></i> 
+        </div>
+        <div>
+            <form id="editEmployeeForm" class="editEmployeeForm">
+                <div>
+                    <label for="Contact_Number">Contact Number:</label>
+                    <br><br>
+                    <input type="text" id="Contact_Number" name="Contact_Number" class="edit_profile" required>
+                </div>
+                <div>
+                    <br>
+                    <label for="Password">Password:</label>
+                    <br><br>
+                    <input type="password" id="Password" name="Password" class="edit_profile" required>
+                </div>
+                <div>
+                    <br>
+                    <label for="Address">Address:</label>
+                    <br><br>
+                    <input type="text" id="Address" name="Address" class="edit_profile" required>
+                </div>
                 <br>
-                <label for="Password">Password:</label>
-                <br><br>
-                <input type="password" id="Password" name="Password" class="edit_profile" required>
-            </div>
-            <div>
-                <br>
-                <label for="Address">Address:</label>
-                <br><br>
-                <input type="text" id="Address" name="Address" class="edit_profile" required>
-            </div>
-            <br>
-            <button type="submit" class="submit_edit">Save</button>
-        </form>
+                <button type="submit" class="submit_edit">Save</button>
+            </form>
+        </div>
     </div>
 </div>
 <div class="right-payroll right-emp-dash">
@@ -67,7 +59,7 @@
         </button>
         <button type="button" class="ad-rightdash-btn">
                 <i class="fi fi-rr-settings"></i>
-                <p class="employee_edit"><a href="/employee_edit">View Profile</a></p>
+                <p class="employee_edit"><a href="/employee_edit">Edit Profile</a></p>
         </button>
     </div>
     <div class="admin-rightdash-bottom">

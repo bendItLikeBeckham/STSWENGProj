@@ -71,28 +71,26 @@ Cypress.on('uncaught:exception', (err, runnable) => {
             })
           })
 
-        it('should send a notification and verify it appears in the list', () => {
-            const testMessage = 'This is a test notification';
+        it('should send a notification and validate if it appears in the list', () => {
     
-            cy.get('#message').type(testMessage);
+            cy.get('#message').type('This is a test notification');
     
             cy.get('.send-notification-button').click();
     
-            cy.get('.notification-timeline').should('contain', testMessage);
+            cy.get('.notification-timeline').should('contain', 'This is a test notification');
         });
 
         it('should delete a notification and validate if it is removed from the list', () => {
-            const messageToDelete = 'This is a test notification';
 
             cy.get('.pagination .page-btn').contains('5').click()
     
-            cy.get('.notification-timeline').should('contain', messageToDelete);
+            cy.get('.notification-timeline').should('contain', 'This is a test notification');
     
-            cy.contains('.timeline-item', messageToDelete)
+            cy.contains('.timeline-item', 'This is a test notification')
               .find('.delete')
               .click();
     
-            cy.get('.notification-timeline').should('not.contain', messageToDelete);
+            cy.get('.notification-timeline').should('not.contain', 'This is a test notification');
         });
     
         it("should log-out", () => {
