@@ -23,6 +23,11 @@ document.addEventListener("DOMContentLoaded", function(){
 async function delete_function(){
     var email_input = document.getElementById("emailToDelete").textContent;
 
+    if (email_input == ""){
+        alert("Please input a user to delete")
+        return;
+    }
+
     try{
         const response = await fetch('/delete_chosen_user', {
             method: 'POST',
@@ -35,7 +40,7 @@ async function delete_function(){
         });
         const data = await response.json();
         if(data.success){
-            togglePopup();
+            togglePopup2();
             console.log("Data Sent")
         }else{
             console.log(data.message);
