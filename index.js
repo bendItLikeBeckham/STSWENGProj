@@ -25,7 +25,7 @@ const nodemailer = require('nodemailer');
 const app = express();
 
 dotenv.config();
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 const hostname = process.env.HOSTNAME;
 app.set('view engine', 'hbs');
 
@@ -69,7 +69,7 @@ app.use(function(req, res){
     res.status(404).send('Error 404: Page Not Found');
 });
 
-app.listen(PORT, HOSTNAME, function() {
+app.listen(port, hostname, function() {
     console.log(`Server running at http://${hostname}:${port}`);
 });
 
