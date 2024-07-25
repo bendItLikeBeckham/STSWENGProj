@@ -8,6 +8,8 @@ Functions:
 -Redirect to login page
 */
 
+process.env.NODE_ENV = 'production';
+
 const express = require('express');
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
