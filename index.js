@@ -23,8 +23,8 @@ const nodemailer = require('nodemailer');
 const app = express();
 
 dotenv.config();
-const port = process.env.PORT || 3000;
-const hostname = process.env.HOSTNAME || 'localhost';
+const port = process.env.PORT;
+const hostname = process.env.HOSTNAME;
 app.set('view engine', 'hbs');
 
 hbs.registerPartials(__dirname + '/views/partials')
