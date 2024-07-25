@@ -96,6 +96,16 @@ Cypress.on('uncaught:exception', (err, runnable) => {
                 cy.url().should('include', '/delete_user');
             })   
 
+            it("should show error in deleting a user without choosing one", () =>{
+
+              cy.get('.ad-leftdash-btn').click();
+              cy.get('#popup-2 #user-delete-button').click();
+
+                cy.on('window:alert', (str) => {
+                  expect(str).to.equal('Please input a user to delete');
+              });
+            })
+
             it("should show existing employee test and can be deleted", () => {
               cy.get('#email').select('atest@gmail.com'); 
 
