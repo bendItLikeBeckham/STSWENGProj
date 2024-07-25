@@ -10,9 +10,13 @@ const employee_change_password_controller = {
     },
     
     send_email : function (req, res){
-        const { email } = req.body;
+        const { email }  = req.body;
+        const {hostname} = req.body;
+        const http = 'http://'
+
+        console.log(hostname)
         const baseUrl = 'http://localhost:3000';
-        const verificationLink = `${baseUrl}/verify_email?email=${email}`;
+        const verificationLink = `${http}${hostname}/verify_email?email=${email}`;
 
         nodemailer.createTestAccount((err, account) => {
             if (err) {
