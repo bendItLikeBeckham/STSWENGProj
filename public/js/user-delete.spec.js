@@ -1,7 +1,6 @@
 import { vitest } from "vitest";
 import { test } from "vitest";
 
-// Paste your functions directly here
 async function delete_function() {
     var email_input = document.getElementById("emailToDelete").textContent;
 
