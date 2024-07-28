@@ -19,6 +19,9 @@ describe('time_out_function', () => {
     global.fetch = vi.fn(() => Promise.resolve({
       json: () => Promise.resolve({})
     }));
+
+    // Manually trigger the DOMContentLoaded event to attach event listeners
+    document.dispatchEvent(new Event('DOMContentLoaded'));
   });
 
   afterEach(() => {
