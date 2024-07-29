@@ -47,7 +47,6 @@ function showConfirmMessage() {
 }
 
 async function update_payroll() {
-  // Simulated update function
 }
 
 describe('Input Validation Tests', () => {

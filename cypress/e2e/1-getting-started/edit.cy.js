@@ -14,7 +14,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return true
   }) 
 
-  describe('Employee Notification Test Suite', () => {
+  describe('Employee Edit Test Suite', () => {
     beforeEach(() => {
       cy.visit('http://localhost:3000')
       cy.get("#email").type("john_doe@gmail.com")
@@ -50,7 +50,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
   })
 
-  describe('Admin Notification Test Suite', () => {
+  describe('Admin Edit Test Suite', () => {
     beforeEach(() => {
       cy.visit('http://localhost:3000')
       cy.get("#email").type("adminusertest111@gmail.com")

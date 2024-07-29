@@ -52,10 +52,10 @@ Cypress.on('uncaught:exception', (err, runnable) => {
             cy.get('.left-emp-info h1').should('contain', 'John Doe');
             cy.get('.left-emp-info h5').should('contain', 'Employee');
 
-            cy.get('.right-emp-info p').eq(0).should('contain', 'Employs City First Avenue');
-            cy.get('.right-emp-info p').eq(1).should('contain', '09999999998'); 
+            cy.get('.right-emp-info p').eq(0).should('contain', 'NEW TEST AVENUE');
+            cy.get('.right-emp-info p').eq(1).should('contain', '09753606368'); 
             cy.get('.right-emp-info p').eq(2).should('contain', 'john_doe@gmail.com');
-            cy.get('.right-emp-info p').eq(3).should('contain', '890');
+            cy.get('.right-emp-info p').eq(3).should('contain', '123');
         });
 
         it("should navigate to weekly payroll", () => {

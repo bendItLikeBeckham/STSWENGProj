@@ -5,7 +5,7 @@ Functions:
 
 var curr_emp;
 
-/*document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function(){
     fetch("/display_employee_records")
     .then(response =>{
         if (!response.ok){
@@ -46,4 +46,4 @@ function displayInfo(){
     .catch(error => {
         console.error('Error fetching /display_specific_employee_records', error);
     });
-}*/
+}

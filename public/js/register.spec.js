@@ -91,7 +91,7 @@ test('Register function submits form data correctly', async () => {
     const response = { success: true };
 
 
-    await new Promise(resolve => setTimeout(resolve, 100)); // Wait for async operations
+    await new Promise(resolve => setTimeout(resolve, 100)); 
     const popup2 = document.getElementById("popup-2");
     const popup3 = document.getElementById("popup-3");
     expect(popup2.classList.contains("active")).toBe(false);
