@@ -7,7 +7,13 @@ const SALT_ROUNDS = 10;
 const employee_edit_user_controller = {
     get_employee_edit_user: async function (req, res) {
         const user = await employee.findOne({ Email: req.session.Email });
-        console.log(user.Employee_Type);
+
+        if (!user) {
+            return res.status(404).send("User not found");
+        }
+
+        console.log(user.Employee_type);
+
         res.render('user-edit', {
             Email: user.Email,
             Contact_Number: user.Contact_Number,
@@ -23,11 +29,20 @@ const employee_edit_user_controller = {
         try {
             const email = req.session.Email;
             console.log(email);
-            const { Contact_Number, Password, Address } = req.body;
 
+            const user = await employee.findOne({ Email: email });
+
+            if (!user) {
+                return res.status(404).json({ success: false, message: "User not found" });
+            }
+
+            if (user.Employee_type === 'Role A') {
+                return res.status(403).json({ success: false, message: 'Role A users are not allowed to edit information.' });
+            }
+
+            const { Contact_Number, Password, Address } = req.body;
             let updateFields = { Contact_Number, Address };
 
-            // Only hash if a new password is provided
             if (Password && Password.trim() !== "") {
                 const hashedPassword = await bcrypt.hash(Password, SALT_ROUNDS);
                 updateFields.Password = hashedPassword;
@@ -43,6 +58,16 @@ const employee_edit_user_controller = {
     post_employee_update_user_verify: async function (req, res) {
         try {
             const { Email, Password } = req.body;
+
+            const user = await employee.findOne({ Email: Email });
+
+            if (!user) {
+                return res.status(404).json({ success: false, message: "User not found" });
+            }
+
+            if (user.Employee_type === 'Role A') {
+                return res.status(403).json({ success: false, message: 'Role A users are not allowed to edit information.' });
+            }
 
             if (!Password || Password.trim() === "") {
                 return res.status(400).json({ success: false, message: "Password is required" });

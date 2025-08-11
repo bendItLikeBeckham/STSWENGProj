@@ -31,8 +31,9 @@ var employee_schema = new mongoose.Schema({
         required: true
     },
     Employee_Type: {
-        type: String,
-        default: 'Employee'
+    type: String,
+    default: 'Employee',
+    enum: ['Employee', 'Role A']
     },
     IsTimedIn: {
         type: Boolean,
