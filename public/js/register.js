@@ -18,6 +18,26 @@ document.addEventListener("DOMContentLoaded", function(){
         var address_input = document.getElementById("address").value;
         var employee_type_input = document.getElementById("employee-type").value;
 
+        const MIN_PASSWORD_LENGTH = 8;
+        const MAX_PASSWORD_LENGTH = 20;
+        const MAX_EMAIL_LENGTH = 50;
+        const MAX_NAME_LENGTH = 30;
+
+        if (first_name_input.length > MAX_NAME_LENGTH || last_name_input.length > MAX_NAME_LENGTH) {
+            alert(`First Name and Last Name must not exceed ${MAX_NAME_LENGTH} characters.`);
+            return;
+        }
+
+        if (email_input.length > MAX_EMAIL_LENGTH) {
+            alert(`Email must not exceed ${MAX_EMAIL_LENGTH} characters.`);
+            return;
+        }        
+
+        if (password_input.length < MIN_PASSWORD_LENGTH || password_input.length > MAX_PASSWORD_LENGTH) {
+            alert(`Password must be between ${MIN_PASSWORD_LENGTH} and ${MAX_PASSWORD_LENGTH} characters.`);
+            return;
+        }
+
         if (!first_name_input || !last_name_input || !password_input || !address_input) {
             alert("Please fill in all fields");
             return; 
