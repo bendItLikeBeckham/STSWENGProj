@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const employee = require('../models/employee_model.js');
 const fs = require('fs');
-const logFile = './logs/login.log';
+const logFile = './logs/login.log'; // Ensure this path is writable by administrators only
 
 const MAX_ATTEMPTS = 5;       // lock after 5 wrong tries
 const LOCK_TIME = 15 * 60 * 1000; // 15 minutes

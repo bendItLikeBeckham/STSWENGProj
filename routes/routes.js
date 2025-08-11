@@ -30,16 +30,23 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 
+function logEvent(eventType, details) {
+    console.log(`[${new Date().toISOString()}] ${eventType}: ${details}`);
+}
+
 function initial_process(req, res, next){
     if(!req.session.Email){
+        logEvent('Access Control Failure', 'Unauthorized access attempt to initial process.');
         res.redirect('/');
     }else{
+        logEvent('Access Granted', `User with email ${req.session.Email} accessed initial process.`);
         next();
     }
 }
 
 function must_be_logged_out(req, res, next){
     if(req.session.Email){
+        logEvent('Authentication Attempt', `Logged-in user attempted to access logged-out routes. Email: ${req.session.Email}`);
         if(req.session.Employee_Type === "Admin"){
             res.redirect('/admin_dashboard');
         }else if(req.session.Employee_Type === "Employee"){
@@ -48,48 +55,64 @@ function must_be_logged_out(req, res, next){
             res.redirect('/work_from_home_clockpage');
         }
     }else{
+        logEvent('Access Granted', 'User is logged out and accessing public routes.');
         next();
     }
 }
 
 function employee_access(req, res, next){
     if(req.session.Employee_Type === "Work From Home"){
+        logEvent('Access Control Failure', `Employee access denied for Work From Home user. Email: ${req.session.Email}`);
         res.redirect('/work_from_home_clockpage');
     }else{
+        logEvent('Access Granted', `Employee access granted for user with email ${req.session.Email}.`);
         next();
     }
 }
 
 function wfh_access(req, res, next){
     if(req.session.Employee_Type === "Employee"){
+        logEvent('Access Control Failure', `Work From Home access denied for Employee user. Email: ${req.session.Email}`);
         res.redirect('/employee_clockpage');
     }else{
+        logEvent('Access Granted', `Work From Home access granted for user with email ${req.session.Email}.`);
         next();
     }
 }
 
 function employee_wfh_access(req, res, next){
     if(req.session.Employee_Type === "Admin"){
+        logEvent('Access Control Failure', `Employee/Work From Home access denied for Admin user. Email: ${req.session.Email}`);
         res.redirect('/admin_dashboard');
     }else{
+        logEvent('Access Granted', `Employee/Work From Home access granted for user with email ${req.session.Email}.`);
         next();
     }
 }
 
 function admin_access(req, res, next){
     if(req.session.Employee_Type === "Employee"){
+        logEvent('Access Control Failure', `Admin access denied for Employee user. Email: ${req.session.Email}`);
         res.redirect('/employee_clockpage');
     }else if(req.session.Employee_Type === "Work From Home"){
+        logEvent('Access Control Failure', `Admin access denied for Work From Home user. Email: ${req.session.Email}`);
         res.redirect('/work_from_home_clockpage');
     }else{
+        logEvent('Access Granted', `Admin access granted for user with email ${req.session.Email}.`);
         next();
     }
 }
 
 //initial routes access
 app.get('/', must_be_logged_out, controllers.get_index);
-app.post('/add_forgot_password', must_be_logged_out, forgot_password_controllers.post_add_forgot_password);
-app.post('/login_account', must_be_logged_out, login_controllers.post_login);
+app.post('/add_forgot_password', must_be_logged_out, (req, res, next) => {
+    logEvent('Validation Failure', `Forgot password attempt for email: ${req.body.Email}`);
+    forgot_password_controllers.post_add_forgot_password(req, res, next);
+});
+app.post('/login_account', must_be_logged_out, (req, res, next) => {
+    logEvent('Authentication Attempt', `Login attempt with email: ${req.body.Email}`);
+    login_controllers.post_login(req, res, next);
+});
 app.get('/logout', initial_process, logout_controllers.get_logout);
 
 //wfh routes access

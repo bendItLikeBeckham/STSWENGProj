@@ -1,4 +1,6 @@
 const bcrypt = require('bcrypt');
+const fs = require('fs');
+const logFile = './logs/register.log'; // Ensure this path is writable by administrators only
 const employee = require('../models/employee_model.js');
 const payroll = require('../models/payroll_model.js');
 
@@ -10,8 +12,14 @@ const register_controller = {
     post_register: async function(req, res){
         const {firstName, lastName, address, contactNumber, email, password, employee_type} = req.body;
 
+        if (!email || !password || !firstName || !lastName || !address || !contactNumber) {
+            fs.appendFileSync(logFile, `Validation Failure: Missing fields - ${JSON.stringify(req.body)}\n`);
+            return res.status(400).json({message: "Missing required fields!"});
+        }
+
         const user_exists = await employee.findOne({Email: email});
         if(user_exists){
+            fs.appendFileSync(logFile, `Validation Failure: Email already exists - ${email}\n`);
             return res.status(400).json({message: "Email Already Exists!"});
         }else if(!password){
             return res.status(400).json({message: "Missing Password!"});
@@ -219,8 +227,10 @@ const register_controller = {
                     await new_payroll_2.save();
                 }
                 //changes: end here
+                fs.appendFileSync(logFile, `Registration Success: ${email}\n`);
                 res.json({success: true, message: "Registration Successful!"});
             }catch(error){
+                fs.appendFileSync(logFile, `Registration Error: ${error.message}\n`);
                 console.error(error);
                 res.status(500).json({success: false, message: "Registration Controller Error!"});
             }
