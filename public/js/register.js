@@ -35,6 +35,12 @@ document.addEventListener("DOMContentLoaded", function(){
             return;
         }
 
+        const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
+        if (!passwordRegex.test(password_input)) {
+            alert("Password must contain at least one uppercase letter, one number, one special character, and be at least 8 characters.");
+            return;
+        }
+
         try{
             const response = await fetch('/register_employee', {
                 method: 'POST',

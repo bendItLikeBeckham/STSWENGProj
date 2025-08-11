@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const employee = require('../models/employee_model.js');
 const payroll = require('../models/payroll_model.js');
 
@@ -15,17 +16,21 @@ const register_controller = {
         }else if(!password){
             return res.status(400).json({message: "Missing Password!"});
         }else{
-            try{
+            try {
+                // Hash password with salt
+                const saltRounds = 10; 
+                const hashedPassword = await bcrypt.hash(password, saltRounds);
+
                 const new_employee = new employee({
                     First_Name: firstName,
                     Last_Name: lastName,
                     Contact_Number: contactNumber,
                     Email: email,
-                    Password: password,
+                    Password: hashedPassword, // store hashed password
                     Address: address,
                     Employee_Type: employee_type,
                     IsTimedIn: false
-                });
+            });
                 await new_employee.save();
                 if(employee_type === "Employee" || employee_type === "Work From Home"){
                     //changes: new payroll 

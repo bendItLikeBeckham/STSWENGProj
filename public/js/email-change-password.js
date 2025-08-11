@@ -4,9 +4,17 @@ document.addEventListener("DOMContentLoaded", function() {
     editForm.addEventListener("submit", function(event) {
         event.preventDefault();
         
+        password_input = document.getElementById("Password").value ;
+        
+        const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).+$/;
+        if (!passwordRegex.test(password_input)) {
+            alert("Password must contain at least one uppercase letter, one number, and one special character.");
+            return;
+        }
+
         const formData = {
             Email: document.getElementById("Email").textContent,
-            Password: document.getElementById("Password").value        
+            Password: password_input       
         };
 
         console.log(formData)

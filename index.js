@@ -44,7 +44,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     store: MongoStore.create({
-        mongoUrl: 'mongodb+srv://Admin_Acc:6rtztqN8cgcS6uwg@payrollcluster.ho2w0w9.mongodb.net/'
+        mongoUrl: 'mongodb://localhost:27017'
     }),
     cookie: { 
         httpOnly: true, 

@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "axios": "^1.7.2",
+    "bcrypt": "^6.0.0",
     "body-parser": "^1.20.2",
     "connect-mongo": "^5.1.0",
     "cors": "^2.8.5",
@@ -53,5 +54,10 @@
     "vite": "^5.3.1",
     "vitest": "^1.6.0",
     "vue-tsc": "^2.0.21"
-  }
+  },
+  "description": "This template should help get you started developing with Vue 3 in Vite.",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
